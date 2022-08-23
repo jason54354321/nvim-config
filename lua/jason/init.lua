@@ -1,5 +1,5 @@
 require('jason.telescope')
-require('jason.lspconfig')
-require('jason.lspsaga')
 require('jason.treesitter')
+require('jason.lspsaga')
 require('jason.cmp')
+require('jason.lspconfig')
