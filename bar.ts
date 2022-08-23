@@ -1,3 +1,3 @@
 import foo from './foo'
 
-foo(1)
+foo(0)
