@@ -1,7 +1,11 @@
 local keymap = vim.keymap.set
 local saga = require('lspsaga')
 
-saga.init_lsp_saga()
+saga.init_lsp_saga{
+	saga_winblend = 0,
+	border_style = "rounded",
+}
+
 
 -- Lsp finder find the symbol definition implement reference
 -- when you use action in finder like open vsplit then you can
