@@ -29,8 +29,8 @@ keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = t
 keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
 
 -- Diagnsotic jump
-keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
-keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
+keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 
 -- Only jump to error
 keymap("n", "[D", function()

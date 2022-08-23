@@ -6,7 +6,12 @@ const u: User = {
 
 DocumentFragment
 CSSPageRule
+default
 
+FormData
+
+
+fdkddi
 
 
 foo(0)

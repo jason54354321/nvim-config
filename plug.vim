@@ -12,5 +12,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'hrsh7th/cmp-cmdline'
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'onsails/lspkind.nvim'
+	Plug 'navarasu/onedark.nvim'
 
 call plug#end()

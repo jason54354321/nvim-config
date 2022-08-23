@@ -11,10 +11,11 @@ end
 
 -- Setup nvim-cmp.
 local cmp = require'cmp'
+local cmp_theme = cmp.config.window and 'dark' or 'light'
 
 local lspkind = require('lspkind')
 cmp.setup({
-	  formatting = {
+	formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
@@ -38,10 +39,14 @@ cmp.setup({
 		end,
 	},
 	window = {
+    documentation = {
+      border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+    },
     completion = {
-      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-      col_offset = -3,
-      side_padding = 0,
+      border = (cmp_theme == 'dark' and {'╭', '─', '╮', '│', '╯', '─', '╰', '│' } or nil),
+      winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None',
+			col_offset = -4,
+			side_padding = 0,
     },
   },
 	mapping = cmp.mapping.preset.insert({
@@ -76,6 +81,7 @@ cmp.setup({
 		{ name = 'buffer' },
 	})
 })
+
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
