@@ -1,5 +1,3 @@
-vim.g.completeopt="menu,menuone,noselect,noinsert"
-
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -10,7 +8,7 @@ local feedkey = function(key, mode)
 end
 
 -- Setup nvim-cmp.
-local cmp = require'cmp'
+local cmp = require('cmp')
 local cmp_theme = cmp.config.window and 'dark' or 'light'
 
 local lspkind = require('lspkind')
@@ -40,7 +38,9 @@ cmp.setup({
 	},
 	window = {
     documentation = {
-      border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+      --border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+			border = "rounded",
+			winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
     },
     completion = {
       border = (cmp_theme == 'dark' and {'╭', '─', '╮', '│', '╯', '─', '╰', '│' } or nil),
@@ -49,12 +49,13 @@ cmp.setup({
 			side_padding = 0,
     },
   },
+
 	mapping = cmp.mapping.preset.insert({
 		['<C-b>'] = cmp.mapping.scroll_docs(-4),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.abort(),
-		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 		["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()

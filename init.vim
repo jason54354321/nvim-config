@@ -22,11 +22,16 @@
 
 " Import plugins
 set rtp+=~/.config/nvim/
-:source ~/.config/nvim/plug.vim
+source ~/.config/nvim/plug.vim
 lua require('jason')
 
-" colors
+" Dart settings
+source ~/.config/nvim/dart_config.vim
+
+" Colors
 highlight clear SignColumn
 colorscheme onedark
 let g:airline_powerline_fonts = 1
 
+" Key bindings
+nnoremap <leader>vv :Vex!<CR>

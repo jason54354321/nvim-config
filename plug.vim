@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" Flutter
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'akinsho/flutter-tools.nvim'
+	Plug 'dart-lang/dart-vim-plugin'
 	
 	" Sniipit
 	Plug 'SirVer/ultisnips'
