@@ -1,4 +1,5 @@
 :set guicursor=
+:set cursorline
 :set number
 :set relativenumber
 :set nohlsearch
@@ -17,6 +18,7 @@
 :set signcolumn=number
 :set cmdheight=2
 :set updatetime=50
+:let mapleader=" "
 
 " Import plugins
 set rtp+=~/.config/nvim/
@@ -26,3 +28,5 @@ lua require('jason')
 " colors
 highlight clear SignColumn
 colorscheme onedark
+let g:airline_powerline_fonts = 1
+

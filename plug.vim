@@ -13,5 +13,17 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'onsails/lspkind.nvim'
 	Plug 'navarasu/onedark.nvim'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+	Plug 'tpope/vim-surround'
+	Plug 'mg979/vim-visual-multi'
+
+	" Flutter
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'akinsho/flutter-tools.nvim'
+	
+	" Sniipit
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
 
 call plug#end()
