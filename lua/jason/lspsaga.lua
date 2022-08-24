@@ -2,8 +2,13 @@ local keymap = vim.keymap.set
 local saga = require('lspsaga')
 
 saga.init_lsp_saga{
-	saga_winblend = 0,
 	border_style = "rounded",
+	finder_icons = {
+		def = '  ',
+		ref = '諭 ',
+		imp = '諭 ',
+		link = '  ',
+	},
 }
 
 
@@ -17,10 +22,7 @@ keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
 keymap("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })
 
 -- Rename
-keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
-
--- Definition preview
-keymap("n", "gd", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
+keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 
 -- Show line diagnostics
 keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
@@ -30,6 +32,7 @@ keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent =
 
 -- Diagnsotic jump
 keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+keymap("n", "<C-j>", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 
 -- Only jump to error

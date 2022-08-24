@@ -35,3 +35,5 @@ let g:airline_powerline_fonts = 1
 
 " Key bindings
 nnoremap <leader>vv :Vex!<CR>
+nnoremap <C-a> <C-^>
+

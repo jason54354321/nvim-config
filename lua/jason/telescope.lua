@@ -29,7 +29,9 @@ require("telescope").setup({
 	},
 })
 
+-- Key mappings
 local keymap = vim.keymap.set
 keymap("n", "<leader>p", "<cmd>Telescope find_files prompt_prefix=🔍<CR>", { silent = true })
 keymap("n", "<leader>vp", "<cmd>Telescope live_grep prompt_prefix=🔍<CR>", { silent = true })
+keymap("n", "<leader>vo", "<cmd>Telescope oldfiles prompt_prefix=🔍<CR>", { silent = true })
 

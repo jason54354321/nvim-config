@@ -1,4 +1,4 @@
-require('lspconfig')
+require('jason.lspconfig')
 require('flutter-tools').setup{ 
 	ui = {
 		-- the border type to use for all floating windows, the same options/formats
@@ -35,7 +35,7 @@ require('flutter-tools').setup{
     settings = {
       showTodos = true,
       completeFunctionCalls = true,
-      analysisExcludedFolders = {"D:\\flutter"},
+      analysisExcludedFolders = {"D:/flutter"},
       renameFilesWithClasses = "prompt", -- "always"
       enableSnippets = true,
     }
