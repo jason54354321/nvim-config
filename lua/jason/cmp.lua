@@ -43,7 +43,8 @@ cmp.setup({
 			winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
     },
     completion = {
-      border = (cmp_theme == 'dark' and {'╭', '─', '╮', '│', '╯', '─', '╰', '│' } or nil),
+      --border = (cmp_theme == 'dark' and {'╭', '─', '╮', '│', '╯', '─', '╰', '│' } or nil),
+			border = "rounded",
       winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None',
 			col_offset = -4,
 			side_padding = 0,
