@@ -34,3 +34,7 @@ keymap("n", "<leader>p", "<cmd>Telescope find_files prompt_prefix=🔍<CR>", { s
 keymap("n", "<leader>vp", "<cmd>Telescope live_grep prompt_prefix=🔍<CR>", { silent = true })
 keymap("n", "<leader>vo", "<cmd>Telescope oldfiles prompt_prefix=🔍<CR>", { silent = true })
 
+--Flutter extension
+require("telescope").load_extension("flutter")
+keymap("n", "<leader>f", "<cmd>Telescope flutter commands<CR>", { silent = true })
+

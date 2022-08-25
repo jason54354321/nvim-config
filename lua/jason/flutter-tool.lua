@@ -23,6 +23,10 @@ require('flutter-tools').setup{
 	widget_guides = {
 		enabled = true,
 	},
+	dev_log = {
+    enabled = true,
+		open_cmd = string.format("bot %dnew", vim.o.lines/4)
+  },
 	lsp = {
     color = { -- show the derived colours for dart variables
       enabled = true, -- whether or not to highlight color variables at all, only supported on flutter >= 2.10

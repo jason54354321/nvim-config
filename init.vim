@@ -2,7 +2,6 @@
 :set cursorline
 :set number
 :set relativenumber
-:set nohlsearch
 :set noerrorbells
 :set autoindent
 :set tabstop=2
@@ -11,6 +10,7 @@
 :set smarttab
 :set mouse=a
 :set encoding=UTF-8
+:set splitbelow
 :set nowrap
 :set ignorecase
 :set smartcase
@@ -36,9 +36,10 @@ let g:airline_powerline_fonts = 1
 " Key bindings
 nnoremap <leader>vv :Vex!<CR>
 nnoremap <C-a> <C-^>
+
 nnoremap <C-Left> <C-w><
 nnoremap <C-Right> <C-w>>
 autocmd VimEnter * nnoremap <C-Down> <C-w>+
 autocmd VimEnter * nnoremap <C-Up> <C-w>-
 
-
+nnoremap <esc> :noh<CR>
