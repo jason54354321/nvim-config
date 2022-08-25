@@ -45,6 +45,7 @@ require('flutter-tools').setup{
       --analysisExcludedFolders = {""},
       renameFilesWithClasses = "prompt", -- "always"
       enableSnippets = true,
+			flutterGutterIcons = true,
     }
   },
 }

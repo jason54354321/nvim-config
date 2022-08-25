@@ -15,6 +15,8 @@ on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	vim.keymap.set('n', '<Bslash>f', vim.lsp.buf.formatting, bufopts)
+	vim.keymap.set('n', 'm', [[<cmd>lua require('lsp-selection-range').trigger()<CR>]], bufopts)
+	vim.keymap.set('v', 'm', [[<cmd>lua require('lsp-selection-range').expand()<CR>]], bufopts)
 
 	-- formatting
   if client.resolved_capabilities.document_formatting then
@@ -27,7 +29,9 @@ on_attach = function(client, bufnr)
 end
 
 -- Setup lspconfig.
-capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('lsp-selection-range').update_capabilities(capabilities)
 for _,lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {
 		on_attach = on_attach,

@@ -18,6 +18,7 @@
 :set signcolumn=number
 :set cmdheight=2
 :set updatetime=50
+:set termguicolors
 :let mapleader=" "
 
 " Import plugins
