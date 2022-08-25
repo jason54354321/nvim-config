@@ -7,6 +7,15 @@ require("telescope").setup({
 				preview_cutoff = 0,
 			},
 		},
+		vimgrep_arguments = {
+      "rg",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--trim" -- add this value
+    },
 		mappings = {
       i = {
         ["<esc>"] = actions.close,
@@ -16,16 +25,6 @@ require("telescope").setup({
 				["<C-s>"] = actions.select_vertical,
 			}
     },
-		vimgrep_arguments = {
-      "rg",
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--smart-case",
-      "--trim" -- add this value
-    }
 	},
 })
 

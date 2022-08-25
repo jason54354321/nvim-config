@@ -26,7 +26,7 @@ source ~/.config/nvim/plug.vim
 lua require('jason')
 
 " Dart settings
-source ~/.config/nvim/dart_config.vim
+let dart_html_in_string=v:true
 
 " Colors
 highlight clear SignColumn
@@ -36,4 +36,9 @@ let g:airline_powerline_fonts = 1
 " Key bindings
 nnoremap <leader>vv :Vex!<CR>
 nnoremap <C-a> <C-^>
+nnoremap <C-Left> <C-w><
+nnoremap <C-Right> <C-w>>
+autocmd VimEnter * nnoremap <C-Down> <C-w>+
+autocmd VimEnter * nnoremap <C-Up> <C-w>-
+
 
