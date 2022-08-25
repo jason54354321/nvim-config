@@ -12,11 +12,16 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'hrsh7th/cmp-cmdline'
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'onsails/lspkind.nvim'
-	Plug 'navarasu/onedark.nvim'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'tpope/vim-surround'
 	Plug 'mg979/vim-visual-multi'
+	Plug 'ryanoasis/vim-devicons'
+	Plug 'matze/vim-move'
+	Plug 'tpope/vim-commentary'
+
+	" Themes
+	Plug 'navarasu/onedark.nvim'
 
 	" Flutter
 	Plug 'nvim-lua/plenary.nvim'
