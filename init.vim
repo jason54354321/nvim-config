@@ -1,5 +1,4 @@
 :set guicursor=
-:set cursorline
 :set number
 :set relativenumber
 :set noerrorbells
@@ -21,23 +20,43 @@
 :set termguicolors
 :let mapleader=" "
 
-" Import plugins
+" --------- Import plugins
 set rtp+=~/.config/nvim/
 source ~/.config/nvim/plug.vim
 lua require('jason')
 
-" Dart settings
+" --------- Dart settings
 let dart_html_in_string=v:true
 
-" Colors
-highlight clear SignColumn
-colorscheme onedark
+" --------- Colors & Appearance
+hi clear SignColumn
 let g:airline_powerline_fonts = 1
+colorscheme vscode
 
-" Key bindings
+" hexokinase
+let g:Hexokinase_ftEnabled = [
+			\'css', 'html', 'javascript',
+			\'vim', 'lua',
+			\]
+
+" bufferline colors
+hi BufferLineIndicatorSelected guifg=#999999
+
+" --------- Current line highlight
+" :set cursorline
+" hi cursorline guibg=none
+" hi cursorlineNr guibg=none guifg=#f3d8f3
+" hi cursorlineNr guibg=none guifg=#edc5ed
+" hi cursorlineNr guibg=none guifg=#e7b1e7
+" hi cursorlineNr guibg=none guifg=#e09ee0
+
+" --------- Key bindings
 nnoremap <leader>vv :Vex!<CR>
 nnoremap <C-a> <C-^>
+nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
+" resize buffer
 nnoremap <C-Left> <C-w><
 nnoremap <C-Right> <C-w>>
 autocmd VimEnter * nnoremap <C-Down> <C-w>+

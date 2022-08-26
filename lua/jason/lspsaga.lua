@@ -3,12 +3,36 @@ local saga = require('lspsaga')
 
 saga.init_lsp_saga{
 	border_style = "rounded",
+	saga_winblend = 0,
+	diagnostic_header = { " ", " ", " ", "ﴞ " },
+	code_action_icon = "💡",
+	code_action_lightbulb = {
+    enable = true,
+    sign = false,
+    enable_in_insert = true,
+    sign_priority = 20,
+    virtual_text = true,
+	},
+	code_action_keys = {
+    quit = "<Esc>",
+    exec = "<CR>",
+	},
 	finder_icons = {
 		def = '  ',
 		ref = '諭 ',
 		imp = '諭 ',
 		link = '  ',
 	},
+	finder_action_keys = {
+    open = "o",
+    vsplit = "s",
+    split = "i",
+    tabe = "t",
+    quit = "<Esc>",
+    scroll_down = "<C-f>",
+    scroll_up = "<C-b>", -- quit can be a table
+	},
+	rename_action_quit = "<Esc>",
 }
 
 -- Lsp finder find the symbol definition implement reference
