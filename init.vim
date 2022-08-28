@@ -35,7 +35,7 @@ let dart_html_in_string=v:true
 " --------- Colors & Appearance -----------
 hi clear SignColumn
 let g:airline_powerline_fonts = 1
-colorscheme NeoSolarized
+colorscheme onedark
 
 " hexokinase
 let g:Hexokinase_ftEnabled = [
@@ -45,6 +45,9 @@ let g:Hexokinase_ftEnabled = [
 
 " bufferline colors
 hi BufferLineIndicatorSelected guifg=#999999
+
+" cmp highlight group
+source ~/.config/nvim/colors/cmp_hi.vim
 " -----------------------------------------
 
 
@@ -76,13 +79,15 @@ nnoremap <esc> :noh<CR>
 " --------- UltiSnips ------------------
 autocmd FileType dart UltiSnipsAddFiletypes dart-flutter
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+map <C-j> <Nop>
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-
 " ------------------------------------------
+
 
 " --------- Others  ------------------
 "
