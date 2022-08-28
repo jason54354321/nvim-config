@@ -27,6 +27,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" Theme & Apearance
 	Plug 'navarasu/onedark.nvim'
 	Plug 'Mofiqul/vscode.nvim'
+	Plug 'Everblush/everblush.nvim', { 'as': 'everblush' }
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'kyazdani42/nvim-web-devicons'

@@ -1,5 +1,6 @@
 hi PmenuSel  guibg=#282C34, guifg=None
 hi Pmenu guifg=#C5CDD9 guibg=#22252A 
+hi CmpItemAbbr guifg=#C5CDD9 guibg=None 
 
 hi CmpItemAbbrDeprecated guifg=#7E8294 guibg=NONE, gui=strikethrough
 hi CmpItemAbbrMatch guifg=#82AAFF guibg=NONE, gui=bold

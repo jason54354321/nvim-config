@@ -26,16 +26,14 @@ source ~/.config/nvim/plug.vim
 lua require('jason')
 " -----------------------------------------
 
-
 " --------- Dart settings -----------------
 let dart_html_in_string=v:true
 " -----------------------------------------
 
-
 " --------- Colors & Appearance -----------
 hi clear SignColumn
 let g:airline_powerline_fonts = 1
-colorscheme onedark
+colorscheme everblush
 
 " hexokinase
 let g:Hexokinase_ftEnabled = [
