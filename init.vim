@@ -20,18 +20,22 @@
 :set termguicolors
 :let mapleader=" "
 
-" --------- Import plugins
+" --------- Import plugins ----------------
 set rtp+=~/.config/nvim/
 source ~/.config/nvim/plug.vim
 lua require('jason')
+" -----------------------------------------
 
-" --------- Dart settings
+
+" --------- Dart settings -----------------
 let dart_html_in_string=v:true
+" -----------------------------------------
 
-" --------- Colors & Appearance
+
+" --------- Colors & Appearance -----------
 hi clear SignColumn
 let g:airline_powerline_fonts = 1
-colorscheme vscode
+colorscheme NeoSolarized
 
 " hexokinase
 let g:Hexokinase_ftEnabled = [
@@ -41,16 +45,20 @@ let g:Hexokinase_ftEnabled = [
 
 " bufferline colors
 hi BufferLineIndicatorSelected guifg=#999999
+" -----------------------------------------
 
-" --------- Current line highlight
+
+" --------- Current line highlight --------
 " :set cursorline
 " hi cursorline guibg=none
 " hi cursorlineNr guibg=none guifg=#f3d8f3
 " hi cursorlineNr guibg=none guifg=#edc5ed
 " hi cursorlineNr guibg=none guifg=#e7b1e7
 " hi cursorlineNr guibg=none guifg=#e09ee0
+" ----------------------------------
 
-" --------- Key bindings
+
+" --------- Key bindings ------------------
 nnoremap <leader>vv :Vex!<CR>
 nnoremap <C-a> <C-^>
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
@@ -63,3 +71,19 @@ autocmd VimEnter * nnoremap <C-Down> <C-w>+
 autocmd VimEnter * nnoremap <C-Up> <C-w>-
 
 nnoremap <esc> :noh<CR>
+" ------------------------------------------
+
+" --------- UltiSnips ------------------
+autocmd FileType dart UltiSnipsAddFiletypes dart-flutter
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" ------------------------------------------
+
+" --------- Others  ------------------
+"
+" ------------------------------------------

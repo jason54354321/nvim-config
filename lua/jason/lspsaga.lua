@@ -7,7 +7,7 @@ saga.init_lsp_saga{
 	diagnostic_header = { " ", " ", " ", "ﴞ " },
 	code_action_icon = "💡",
 	code_action_lightbulb = {
-    enable = true,
+    enable = false,
     sign = false,
     enable_in_insert = true,
     sign_priority = 20,
