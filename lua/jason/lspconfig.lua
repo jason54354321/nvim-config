@@ -1,5 +1,5 @@
 local nvim_lsp = require('lspconfig')
-local servers = {'tsserver', 'sumneko_lua', 'vimls', 'clangd'}
+local servers = {'tsserver', 'sumneko_lua', 'vimls',}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -25,7 +25,22 @@ on_attach = function(client, bufnr)
     vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
     vim.api.nvim_command [[augroup END]]
   end
+end
 
+on_attach_go = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+	vim.keymap.set('n', '<Bslash>f', "<Plug>(go-fmt)", bufopts)
+	vim.keymap.set('n', 'm', [[<cmd>lua require('lsp-selection-range').trigger()<CR>]], bufopts)
+	vim.keymap.set('v', 'm', [[<cmd>lua require('lsp-selection-range').expand()<CR>]], bufopts)
 end
 
 -- Setup lspconfig.
@@ -38,6 +53,11 @@ for _,lsp in ipairs(servers) do
 		capabilities = capabilities,
 	}
 end
+
+nvim_lsp['gopls'].setup{
+  on_attach = on_attach_go,
+	capabilities = capabilities,
+}
 
 vim.diagnostic.config({
   virtual_text = {

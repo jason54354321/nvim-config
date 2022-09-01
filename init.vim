@@ -30,6 +30,10 @@ lua require('jason')
 let dart_html_in_string=v:true
 " -----------------------------------------
 
+" --------- Golang settings -----------------
+let g:go_doc_keywordprg_enabled = 0
+" -----------------------------------------
+
 " --------- Colors & Appearance -----------
 hi clear SignColumn
 let g:airline_powerline_fonts = 1

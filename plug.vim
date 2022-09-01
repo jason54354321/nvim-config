@@ -39,7 +39,10 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'akinsho/flutter-tools.nvim'
 	Plug 'dart-lang/dart-vim-plugin'
-	
+
+	" Golang
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 	" Sniipit
 	Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
