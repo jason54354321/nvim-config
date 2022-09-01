@@ -1,7 +1,3 @@
-local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
 
 local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
@@ -46,7 +42,7 @@ cmp.setup({
 	formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
-      local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 20 })(entry, vim_item)
+      local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 25 })(entry, vim_item)
       local strings = vim.split(kind.kind, "%s", { trimempty = true })
       kind.kind = " " .. strings[1] .. " "
       kind.menu = "    (" .. strings[2] .. ")"
@@ -60,6 +56,7 @@ cmp.setup({
 			winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
 			col_offset = -3,
 			side_padding = 0,
+			height = 20,
 		},
 		documentation = {
 			--border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
@@ -67,6 +64,9 @@ cmp.setup({
 			winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
 		},
   },
+	experimental = {
+		ghost_text = "true"
+	},
 	--window = {
 	--	documentation = {
 	--		--border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
@@ -181,41 +181,16 @@ cmp.setup({
 			['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
 			['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
 			['<C-e>'] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
-			['<CR>'] = cmp.mapping.confirm({ select = true }),
+			['<CR>'] = cmp.mapping.confirm({ select = false }),
 			-- ... Your other configuration ...
 	},
-
-	-- mapping = cmp.mapping.preset.insert({
-	-- 	['<C-b>'] = cmp.mapping.scroll_docs(-4),
-	-- 	['<C-f>'] = cmp.mapping.scroll_docs(4),
-	-- 	['<C-Space>'] = cmp.mapping.complete(),
-	-- 	['<C-e>'] = cmp.mapping.abort(),
-	-- 	['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-	-- 	["<Tab>"] = cmp.mapping(function(fallback)
-      -- if cmp.visible() then
-        -- cmp.select_next_item()
-      -- elseif has_words_before() then
-        -- cmp.complete()
-      -- else
-        -- fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-      -- end
-    -- end, { "i", "s" }),
-
-    -- ["<S-Tab>"] = cmp.mapping(function()
-      -- if cmp.visible() then
-        -- cmp.select_prev_item()
-      -- end
-    -- end, { "i", "s" }),
-	-- }),
 	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },
-		-- { name = 'vsnip' }, -- For vsnip users.
-		-- { name = 'luasnip' }, -- For luasnip users.
+		{ name = 'nvim_lsp', max_item_count = 10 },
 		{ name = 'ultisnips' }, -- For ultisnips users.
-		-- { name = 'snippy' }, -- For snippy users.
 	}, {
 		{ name = 'buffer' },
 	})
+
 })
 
 

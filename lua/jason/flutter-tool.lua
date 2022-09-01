@@ -25,7 +25,7 @@ require('flutter-tools').setup{
 	},
 	dev_log = {
     enabled = true,
-		open_cmd = string.format("bot %dnew", vim.o.lines/4)
+		open_cmd = string.format("bot %dnew", vim.o.lines/5)
   },
 	lsp = {
     color = { -- show the derived colours for dart variables

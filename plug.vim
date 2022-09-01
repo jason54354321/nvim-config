@@ -28,8 +28,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'navarasu/onedark.nvim'
 	Plug 'Mofiqul/vscode.nvim'
 	Plug 'Everblush/everblush.nvim', { 'as': 'everblush' }
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
+	" Plug 'vim-airline/vim-airline'
+	" Plug 'vim-airline/vim-airline-themes'
+	Plug 'nvim-lualine/lualine.nvim'
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 	Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }

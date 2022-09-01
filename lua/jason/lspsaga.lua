@@ -75,12 +75,3 @@ keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 -- Signature help
 keymap("n", "gs", "<Cmd>Lspsaga signature_help<CR>", { silent = true })
 
-local action = require("lspsaga.action")
--- scroll in hover doc or  definition preview window
-vim.keymap.set("n", "<C-f>", function()
-    action.smart_scroll_with_saga(1)
-end, { silent = true })
--- scroll in hover doc or  definition preview window
-vim.keymap.set("n", "<C-b>", function()
-    action.smart_scroll_with_saga(-1)
-end, { silent = true })
