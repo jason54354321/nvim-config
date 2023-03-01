@@ -1,4 +1,4 @@
-:set guicursor=
+" :set guicursor=
 :set number
 :set relativenumber
 :set noerrorbells
@@ -25,6 +25,7 @@ set rtp+=~/.config/nvim/
 source ~/.config/nvim/plug.vim
 lua require('jason')
 " -----------------------------------------
+
 
 " --------- Dart settings -----------------
 let dart_html_in_string=v:true
@@ -66,7 +67,7 @@ source ~/.config/nvim/colors/cmp_hi.vim
 " --------- Key bindings ------------------
 nnoremap <leader>vv :Vex!<CR>
 nnoremap <C-a> <C-^>
-nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+" nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 " resize buffer
@@ -76,6 +77,9 @@ autocmd VimEnter * nnoremap <C-Down> <C-w>+
 autocmd VimEnter * nnoremap <C-Up> <C-w>-
 
 nnoremap <esc> :noh<CR>
+
+" It's for multiple yank and paste action, not affecting single ones.
+xnoremap <leader>p "_dP
 " ------------------------------------------
 
 " --------- UltiSnips ------------------

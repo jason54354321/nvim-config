@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" Stuff
 	Plug 'cohama/lexima.vim'
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'nvim-treesitter/playground'
 	Plug 'tpope/vim-surround'
 	Plug 'mg979/vim-visual-multi'
 	Plug 'matze/vim-move'
@@ -46,5 +47,8 @@ call plug#begin('~/.config/nvim/plugged')
 	" Sniipit
 	Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
+	
+	"testing
+	Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 call plug#end()

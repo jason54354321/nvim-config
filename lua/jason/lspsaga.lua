@@ -1,40 +1,62 @@
-local keymap = vim.keymap.set
 local saga = require('lspsaga')
 
-saga.init_lsp_saga{
-	border_style = "rounded",
-	saga_winblend = 0,
-	diagnostic_header = { " ", " ", " ", "ﴞ " },
-	code_action_icon = "💡",
-	code_action_lightbulb = {
-    enable = false,
-    sign = false,
-    enable_in_insert = true,
-    sign_priority = 20,
-    virtual_text = true,
-	},
-	code_action_keys = {
-    quit = "<Esc>",
-    exec = "<CR>",
-	},
-	finder_icons = {
-		def = '  ',
-		ref = '諭 ',
-		imp = '諭 ',
-		link = '  ',
-	},
-	finder_action_keys = {
-    open = "o",
-    vsplit = "s",
-    split = "i",
-    tabe = "t",
-    quit = "<Esc>",
-    scroll_down = "<C-f>",
-    scroll_up = "<C-b>", -- quit can be a table
-	},
-	rename_action_quit = "<Esc>",
-}
 
+saga.setup({
+	ui = {
+    -- Currently, only the round theme exists
+    theme = "round",
+    -- This option only works in Neovim 0.9
+    title = true,
+    -- Border type can be single, double, rounded, solid, shadow.
+    border = "rounded",
+    winblend = 0,
+    expand = "",
+    collapse = "",
+    preview = " ",
+    code_action = "💡",
+    diagnostic = "🐞",
+    incoming = " ",
+    outgoing = " ",
+    hover = ' ',
+    kind = {},
+  },
+
+})
+-- saga.setup({
+-- 	border_style = "rounded",
+-- 	saga_winblend = 30,
+-- 	diagnostic_header = { " ", " ", " ", "ﴞ " },
+--   code_action_icon = "💡",
+-- 	code_action_lightbulb = {
+--     enable = false,
+--     sign = false,
+--     enable_in_insert = true,
+--     sign_priority = 20,
+--     virtual_text = true,
+-- 	},
+-- 	code_action_keys = {
+--     quit = "<Esc>",
+--     exec = "<CR>",
+-- 	},
+-- 	finder_icons = {
+-- 		def = '  ',
+-- 		ref = '諭 ',
+-- 		imp = '諭 ',
+-- 		link = '  ',
+-- 	},
+-- 	finder_action_keys = {
+--     open = "o",
+--     vsplit = "s",
+--     split = "i",
+--     tabe = "t",
+--     quit = "<Esc>",
+--     scroll_down = "<C-f>",
+--     scroll_up = "<C-b>", -- quit can be a table
+-- 	},
+-- 	rename_action_quit = "<Esc>",
+-- })
+
+local keymap = vim.keymap.set
 -- Lsp finder find the symbol definition implement reference
 -- when you use action in finder like open vsplit then you can
 -- use <C-t> to jump back

@@ -59,7 +59,7 @@ cmp.setup({
 			height = 20,
 		},
 		documentation = {
-			--border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+			border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
 			border = "rounded",
 			winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
 		},
