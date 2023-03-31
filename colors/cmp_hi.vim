@@ -1,11 +1,12 @@
-hi PmenuSel  guibg=#282C34, guifg=None
+" hi PmenuSel  guibg=#282C34, guifg=None
+hi PmenuSel  guibg=#FF2C34 guifg=#39F333
 hi Pmenu guifg=#C5CDD9 guibg=#22252A 
 hi CmpItemAbbr guifg=#C5CDD9 guibg=None 
 
-hi CmpItemAbbrDeprecated guifg=#7E8294 guibg=NONE, gui=strikethrough
-hi CmpItemAbbrMatch guifg=#82AAFF guibg=NONE, gui=bold
+hi CmpItemAbbrDeprecated guifg=#7E8294 guibg=NONE gui=strikethrough
+hi CmpItemAbbrMatch guifg=#82AAFF guibg=NONE gui=bold
 hi CmpItemAbbrMatchFuzzy guifg=#82AAFF guibg=NONE gui=bold 
-hi CmpItemMenu guifg=#C792EA guibg=NONE, gui=italic
+hi CmpItemMenu guifg=#C792EA guibg=NONE gui=italic
 
 hi CmpItemKindField guifg=#EED8DA guibg=#B5585F 
 hi CmpItemKindProperty guifg=#EED8DA guibg=#B5585F 

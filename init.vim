@@ -18,7 +18,13 @@
 :set cmdheight=2
 :set updatetime=50
 :set termguicolors
+:set undofile
+:set splitright
 :let mapleader=" "
+
+" CamelCaseMotion
+" :let g:camelcasemotion_key = '<leader>'
+:let g:camelcasemotion_key = ','
 
 " --------- Import plugins ----------------
 set rtp+=~/.config/nvim/
@@ -47,7 +53,7 @@ let g:Hexokinase_ftEnabled = [
 			\]
 
 " bufferline colors
-hi BufferLineIndicatorSelected guifg=#999999
+" hi BufferLineIndicatorSelected guifg=#999999
 
 " cmp highlight group
 source ~/.config/nvim/colors/cmp_hi.vim
@@ -55,18 +61,22 @@ source ~/.config/nvim/colors/cmp_hi.vim
 
 
 " --------- Current line highlight --------
-" :set cursorline
-" hi cursorline guibg=none
-" hi cursorlineNr guibg=none guifg=#f3d8f3
-" hi cursorlineNr guibg=none guifg=#edc5ed
-" hi cursorlineNr guibg=none guifg=#e7b1e7
-" hi cursorlineNr guibg=none guifg=#e09ee0
+:set cursorline
+hi cursorline guibg=#213c52
+" hi cursorlineNr guibg=none guifg=#3F5F8F
+" hi cursorlineNr guibg=none guifg=#888888
+hi LineNr guibg=none guifg=#666666
+hi LineNr guibg=none guifg=#213c52
+hi cursorlineNr guibg=none guifg=#18466b
 " ----------------------------------
 
 
 " --------- Key bindings ------------------
 nnoremap <leader>vv :Vex!<CR>
 nnoremap <C-a> <C-^>
+nnoremap <C-w>s <C-w>v
+nnoremap <C-w>v <C-w>s 
+
 " nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
@@ -80,6 +90,14 @@ nnoremap <esc> :noh<CR>
 
 " It's for multiple yank and paste action, not affecting single ones.
 xnoremap <leader>p "_dP
+" c++: trim a defined method to declare state
+nnoremap <leader>h f{da{a;0
+" c++: Quickly switch between .h and .cpp files
+nnoremap <leader>/ :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+" copy to clipboard
+xnoremap <C-c> "+y
+
+
 " ------------------------------------------
 
 " --------- UltiSnips ------------------

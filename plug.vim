@@ -8,6 +8,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'mg979/vim-visual-multi'
 	Plug 'matze/vim-move'
 	Plug 'tpope/vim-commentary'
+	Plug 'bkad/CamelCaseMotion'
 
 	" File manager
 	Plug 'nvim-lua/plenary.nvim'
@@ -43,6 +44,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" Golang
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+	
+	
 
 	" Sniipit
 	Plug 'SirVer/ultisnips'

@@ -20,6 +20,21 @@ saga.setup({
     hover = ' ',
     kind = {},
   },
+	finder = {
+    --percentage
+    max_height = 0.5,
+    force_max_height = false,
+    keys = {
+      jump_to = 'p',
+      edit = { 'o', '<CR>' },
+      vsplit = 's',
+      split = 'i',
+      tabe = 't',
+      tabnew = 'r',
+      quit = { 'q', '<ESC>' },
+      close_in_preview = 'q',
+    },
+  },
 
 })
 -- saga.setup({
@@ -75,6 +90,9 @@ keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = t
 -- Show cursor diagnostic
 keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
 
+-- Go peek definition
+keymap("n", "gp", "<cmd>Lspsaga peek_definition<CR>")
+
 -- Diagnsotic jump
 keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 keymap("n", "<C-j>", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
@@ -89,7 +107,7 @@ keymap("n", "]D", function()
 end, { silent = true })
 
 -- Outline
-keymap("n","go", "<cmd>LSoutlineToggle<CR>",{ silent = true })
+keymap("n","go", "<cmd>Lspsaga outline<CR>",{ silent = true })
 
 -- Hover Doc
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })

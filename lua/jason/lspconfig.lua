@@ -1,5 +1,5 @@
 local nvim_lsp = require('lspconfig')
-local servers = {'tsserver', 'sumneko_lua', 'vimls',}
+local servers = {'tsserver', 'sumneko_lua', 'vimls', 'clangd'}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -11,7 +11,6 @@ on_attach = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
 
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	vim.keymap.set('n', '<Bslash>f', vim.lsp.buf.format, bufopts)

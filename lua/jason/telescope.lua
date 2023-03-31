@@ -22,7 +22,10 @@ require("telescope").setup({
       i = {
         ["<Esc>"] = actions.close,
         ["<leader>"] = actions.close,
+				["<C-j>"] = actions.move_selection_next,
+				["<C-k>"] = actions.move_selection_previous,
 				["<C-s>"] = actions.select_vertical,
+				["<C-u>"] = function() vim.cmd('normal vbd') end,
       },
 			n = {
 				["<C-s>"] = actions.select_vertical,
@@ -37,7 +40,9 @@ require("telescope").setup({
       mappings = {
         -- your custom insert mode mappings
         ["i"] = {
-          ["<C-w>"] = function() vim.cmd('normal vbd') end,
+          ["<C-u>"] = function() vim.cmd('normal vbd') end,
+					["<C-l>"] = fb_actions.create,
+					["<C-r>"] = fb_actions.rename,
         },
         ["n"] = {
           -- your custom normal mode mappings
@@ -54,9 +59,10 @@ require("telescope").setup({
 
 -- Key mappings
 local keymap = vim.keymap.set
-keymap("n", "<leader>p", "<cmd>Telescope find_files prompt_prefix=🔍<CR>", { silent = true })
-keymap("n", "<leader>vp", "<cmd>Telescope live_grep prompt_prefix=🔍<CR>", { silent = true })
+keymap("n", "<leader>i", "<cmd>Telescope find_files prompt_prefix=🔍<CR>", { silent = true })
 keymap("n", "<leader>o", "<cmd>Telescope oldfiles prompt_prefix=🔍<CR>", { silent = true })
+keymap("n", "<leader>p", "<cmd>Telescope live_grep prompt_prefix=🔍<CR>", { silent = true })
+keymap("n", "<leader>l", "<cmd>Telescope file_browser prompt_prefix=🔍<CR>", { silent = true })
 
 --Flutter extension
 require("telescope").load_extension("file_browser")
