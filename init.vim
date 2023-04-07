@@ -61,13 +61,12 @@ source ~/.config/nvim/colors/cmp_hi.vim
 
 
 " --------- Current line highlight --------
-:set cursorline
-hi cursorline guibg=#213c52
+" :set cursorline
+" hi cursorline guibg=#213c52
 " hi cursorlineNr guibg=none guifg=#3F5F8F
 " hi cursorlineNr guibg=none guifg=#888888
-hi LineNr guibg=none guifg=#666666
 hi LineNr guibg=none guifg=#213c52
-hi cursorlineNr guibg=none guifg=#18466b
+" hi cursorlineNr guibg=none guifg=#18466b
 " ----------------------------------
 
 
@@ -102,16 +101,16 @@ xnoremap <C-c> "+y
 
 " --------- UltiSnips ------------------
 autocmd FileType dart UltiSnipsAddFiletypes dart-flutter
-let g:UltiSnipsExpandTrigger="<tab>"
-map <C-j> <Nop>
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger="<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger="<Plug>(ultisnips_jump_forward)"
+let g:UltiSnipsJumpBackwardTrigger="<Plug>(ultisnips_jump_backward)"
+let g:UltiSnipsListSnippets='<c-x><c-s>'
+let g:UltiSnipsRemoveSelectModeMappings=0
 
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 " ------------------------------------------
-
 
 " --------- Others  ------------------
 "

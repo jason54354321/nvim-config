@@ -10,9 +10,10 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-commentary'
 	Plug 'bkad/CamelCaseMotion'
 
-	" File manager
+	" File navigation
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+	Plug 'ThePrimeagen/harpoon'
 
 	" Lsp plugin
 	Plug 'neovim/nvim-lspconfig'

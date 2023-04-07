@@ -38,6 +38,10 @@ require('lspkind').init({
 local cmp = require('cmp')
 local cmp_theme = cmp.config.window and 'dark' or 'light'
 
+local t = function(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
 cmp.setup({
 	formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -204,11 +208,9 @@ cmp.setup.cmdline('/', {
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
 		{ name = 'path' }
 	}, {
 		{ name = 'cmdline' }
 	})
 })
-
