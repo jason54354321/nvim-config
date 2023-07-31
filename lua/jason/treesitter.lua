@@ -1,3 +1,4 @@
+require 'nvim-treesitter.install'.compilers = { "clang" }
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
@@ -12,17 +13,14 @@ require'nvim-treesitter.configs'.setup {
 		disable = {},
   },
 	ensure_installed = {
-		-- Currently has issue
-		-- "c",
-		-- "cpp",
-		-- "tsx",
-		-- "javascript",
-		-- "yaml",
-		-- "html",
-		-- "json",
-		-- "go",
-		-- "dart",
+		"c",
+		"cpp",
+		"tsx",
+		"javascript",
+		"yaml",
+		"html",
+		"json",
+		"go",
+		"dart",
 	}
 }
-
-require 'nvim-treesitter.install'.compilers = { "clang" }
