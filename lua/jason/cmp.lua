@@ -5,32 +5,32 @@ end
 
 require('lspkind').init({
     -- override preset symbols
-    symbol_map = {
-      Text = "",
-      Method = "",
-      Function = "",
-      Constructor = "",
-      Field = "ﰠ",
-      Variable = "",
-      Class = "ﴯ",
-      Interface = "",
-      Module = "",
-      Property = "ﰠ",
-      Unit = "塞",
-      Value = "",
-      Enum = "",
-      Keyword = "",
-      Snippet = "",
-      Color = "",
-      File = "",
-      Reference = "",
-      Folder = "",
-      EnumMember = "",
-      Constant = "",
-      Struct = "פּ",
-      Event = "",
-      Operator = "",
-      TypeParameter = ""
+		symbol_map = {
+			Text = '',
+			Method = '',
+			Function = '',
+			Constructor = '',
+			Field = '',
+			Variable = '',
+			Class = '',
+			Interface = '',
+			Module = '',
+			Property = '',
+			Unit = '',
+			Value = '',
+			Enum = '',
+			Keyword = '',
+			Snippet = '',
+			Color = '',
+			File = '',
+			Reference = '',
+			Folder = '',
+			EnumMember = '',
+			Constant = '',
+			Struct = '',
+			Event = '',
+			Operator = '',
+			TypeParameter = '',
     },
 })
 
@@ -47,9 +47,12 @@ cmp.setup({
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 25 })(entry, vim_item)
-      local strings = vim.split(kind.kind, "%s", { trimempty = true })
-      kind.kind = " " .. strings[1] .. " "
-      kind.menu = "    (" .. strings[2] .. ")"
+      local strings = vim.split(kind.kind, "%s", { trimempty = false })
+			kind.kind = " " .. (strings[1] or "") .. " "
+      kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+      -- kind.kind = " " .. strings[1] .. " "
+      -- kind.menu = "    (" .. strings[2] .. ")"
 
       return kind
     end,
@@ -152,7 +155,7 @@ cmp.setup({
 			['<C-j>'] = cmp.mapping({
 					c = function()
 							if cmp.visible() then
-									cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+									cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
 							else
 									vim.api.nvim_feedkeys(t('<Down>'), 'n', true)
 							end
@@ -168,7 +171,7 @@ cmp.setup({
 			['<C-k>'] = cmp.mapping({
 					c = function()
 							if cmp.visible() then
-									cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+									cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
 							else
 									vim.api.nvim_feedkeys(t('<Up>'), 'n', true)
 							end

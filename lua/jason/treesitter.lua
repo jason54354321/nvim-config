@@ -12,12 +12,17 @@ require'nvim-treesitter.configs'.setup {
 		disable = {},
   },
 	ensure_installed = {
-		"tsx",
-		"javascript",
-		"yaml",
-		"html",
-		"json",
-		"go",
-		"dart",
+		-- Currently has issue
+		-- "c",
+		-- "cpp",
+		-- "tsx",
+		-- "javascript",
+		-- "yaml",
+		-- "html",
+		-- "json",
+		-- "go",
+		-- "dart",
 	}
 }
+
+require 'nvim-treesitter.install'.compilers = { "clang" }
