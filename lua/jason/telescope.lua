@@ -43,6 +43,8 @@ require("telescope").setup({
           ["<C-u>"] = function() vim.cmd('normal vbd') end,
 					["<C-l>"] = fb_actions.create,
 					["<C-r>"] = fb_actions.rename,
+					["<C-d>"] = fb_actions.remove,
+					["<C-h>"] = fb_actions.goto_parent_dir,
         },
         ["n"] = {
           -- your custom normal mode mappings

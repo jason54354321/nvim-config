@@ -1,5 +1,5 @@
 local nvim_lsp = require('lspconfig')
-local servers = {'tsserver', 'sumneko_lua', 'vimls', 'clangd'}
+local servers = {'tsserver', 'sumneko_lua', 'vimls', 'clangd', 'pyright'}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer

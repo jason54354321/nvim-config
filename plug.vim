@@ -26,6 +26,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 	Plug 'onsails/lspkind.nvim'
 	Plug 'camilledejoye/nvim-lsp-selection-range'
+	Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 
 	" Theme & Apearance
 	Plug 'navarasu/onedark.nvim'
@@ -35,7 +36,6 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'vim-airline/vim-airline-themes'
 	Plug 'nvim-lualine/lualine.nvim'
 	Plug 'kyazdani42/nvim-web-devicons'
-	Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 	Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 	" Flutter
@@ -46,8 +46,6 @@ call plug#begin('~/.config/nvim/plugged')
 	" Golang
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	
-	
-
 	" Sniipit
 	Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'

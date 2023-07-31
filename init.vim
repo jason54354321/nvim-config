@@ -1,4 +1,4 @@
-" :set guicursor=
+ " :set guicursor=
 :set number
 :set relativenumber
 :set noerrorbells
@@ -18,7 +18,6 @@
 :set cmdheight=2
 :set updatetime=50
 :set termguicolors
-:set undofile
 :set splitright
 :let mapleader=" "
 
@@ -65,8 +64,10 @@ source ~/.config/nvim/colors/cmp_hi.vim
 " hi cursorline guibg=#213c52
 " hi cursorlineNr guibg=none guifg=#3F5F8F
 " hi cursorlineNr guibg=none guifg=#888888
-hi LineNr guibg=none guifg=#213c52
 " hi cursorlineNr guibg=none guifg=#18466b
+" hi LineNr guibg=none guifg=#215052
+" hi LineNr guibg=none guifg=#0c5154
+hi LineNr guibg=none guifg=#444d5e
 " ----------------------------------
 
 
