@@ -13,6 +13,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" File navigation
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+	Plug 'nvim-telescope/telescope-file-browser.nvim'
 	Plug 'ThePrimeagen/harpoon'
 
 	" Lsp plugin
@@ -23,6 +24,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'hrsh7th/cmp-path'
 	Plug 'hrsh7th/cmp-cmdline'
 	Plug 'hrsh7th/nvim-cmp'
+	Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 	Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 	Plug 'onsails/lspkind.nvim'
 	Plug 'camilledejoye/nvim-lsp-selection-range'
@@ -32,8 +34,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'navarasu/onedark.nvim'
 	Plug 'Mofiqul/vscode.nvim'
 	Plug 'Everblush/everblush.nvim', { 'as': 'everblush' }
-	" Plug 'vim-airline/vim-airline'
-	" Plug 'vim-airline/vim-airline-themes'
 	Plug 'nvim-lualine/lualine.nvim'
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
@@ -49,8 +49,5 @@ call plug#begin('~/.config/nvim/plugged')
 	" Sniipit
 	Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
-	
-	"testing
-	Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 call plug#end()
