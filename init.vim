@@ -98,6 +98,9 @@ nnoremap <leader>/ :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 xnoremap <C-c> "+y
 " grunt-screeps
 nnoremap gu :!grunt screeps
+" Quick indent
+xnoremap > >gv
+xnoremap < <gv
 
 
 " ------------------------------------------

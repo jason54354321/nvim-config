@@ -45,6 +45,9 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" Golang
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+	" Java
+	Plug 'mfussenegger/nvim-jdtls'
 	
 	" Sniipit
 	Plug 'SirVer/ultisnips'

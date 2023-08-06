@@ -1,40 +1,44 @@
 local saga = require('lspsaga')
 
-
 saga.setup({
 	ui = {
-    -- Currently, only the round theme exists
-    theme = "round",
-    -- This option only works in Neovim 0.9
-    title = true,
-    -- Border type can be single, double, rounded, solid, shadow.
-    border = "rounded",
-    winblend = 0,
-    expand = "",
-    collapse = "",
-    preview = " ",
-    code_action = "💡",
-    diagnostic = "🐞",
-    incoming = " ",
-    outgoing = " ",
-    hover = ' ',
-    kind = {},
-  },
+		-- Currently, only the round theme exists
+		theme = "round",
+		-- This option only works in Neovim 0.9
+		title = true,
+		-- Border type can be single, double, rounded, solid, shadow.
+		border = "rounded",
+		winblend = 0,
+		expand = "",
+		collapse = "",
+		preview = " ",
+		code_action = "💡",
+		diagnostic = "🐞",
+		incoming = " ",
+		outgoing = " ",
+		hover = ' ',
+		kind = {},
+	},
 	finder = {
-    --percentage
-    max_height = 0.5,
-    force_max_height = false,
-    keys = {
-      jump_to = 'p',
-      edit = { 'o', '<CR>' },
-      vsplit = 's',
-      split = 'i',
-      tabe = 't',
-      tabnew = 'r',
-      quit = { 'q', '<ESC>' },
-      close_in_preview = 'q',
-    },
-  },
+		--percentage
+		max_height = 0.5,
+		force_max_height = false,
+		keys = {
+			jump_to = 'p',
+			edit = { 'o', '<CR>' },
+			vsplit = 's',
+			split = 'i',
+			tabe = 't',
+			tabnew = 'r',
+			quit = { 'q', '<ESC>' },
+			close_in_preview = 'q',
+		},
+	},
+	lightbulb = {
+		enable = true,
+		sign = false,
+		debounce = 1000,
+	},
 
 })
 -- saga.setup({
@@ -100,18 +104,17 @@ keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 
 -- Only jump to error
 keymap("n", "[D", function()
-  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 keymap("n", "]D", function()
-  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 
 -- Outline
-keymap("n","go", "<cmd>Lspsaga outline<CR>",{ silent = true })
+keymap("n", "go", "<cmd>Lspsaga outline<CR>", { silent = true })
 
 -- Hover Doc
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 
 -- Signature help
 keymap("n", "gs", "<Cmd>Lspsaga signature_help<CR>", { silent = true })
-
