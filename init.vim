@@ -25,6 +25,10 @@
 " :let g:camelcasemotion_key = '<leader>'
 :let g:camelcasemotion_key = ','
 
+if has('win32')
+	:set shell=pwsh
+endif
+
 " --------- Import plugins ----------------
 set rtp+=~/.config/nvim/
 source ~/.config/nvim/plug.vim
@@ -101,6 +105,8 @@ nnoremap gu :!grunt screeps
 " Quick indent
 xnoremap > >gv
 xnoremap < <gv
+" Navigation between terminal
+tnoremap <Esc> <C-\><C-n>
 
 
 " ------------------------------------------
