@@ -64,26 +64,9 @@ local keymap = vim.keymap.set
 keymap("n", "<leader>i", "<cmd>Telescope find_files prompt_prefix=🔍<CR>", { silent = true })
 keymap("n", "<leader>o", "<cmd>Telescope oldfiles prompt_prefix=🔍<CR>", { silent = true })
 keymap("n", "<leader>p", "<cmd>Telescope live_grep prompt_prefix=🔍<CR>", { silent = true })
-keymap("n", "<leader>l", "<cmd>Telescope file_browser prompt_prefix=🔍<CR>", { silent = true })
+keymap("n", "<leader>l", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { silent = true })
 
 --Flutter extension
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("flutter")
 keymap("n", "<leader>f", "<cmd>Telescope flutter commands<CR>", { silent = true })
-
-local function telescope_buffer_dir()
-	return vim.fn.expand('%:p:h')
-end
-
--- vim.keymap.set("n", "sf", function()
---   require("telescope").extensions.file_browser.file_browser({
---     path = "%:p:h",
---     cwd = telescope_buffer_dir(),
---     respect_gitignore = false,
---     hidden = true,
---     grouped = true,
---     previewer = false,
---     initial_mode = "normal",
---     layout_config = { height = 40 }
---   })
--- end)

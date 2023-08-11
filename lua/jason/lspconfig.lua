@@ -1,5 +1,5 @@
 local nvim_lsp = require('lspconfig')
-local servers = { 'tsserver', 'vimls', 'clangd', 'pyright' }
+local servers = { 'tsserver', 'vimls', 'clangd', 'pyright', 'dockerls', 'docker_compose_language_service' }
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
