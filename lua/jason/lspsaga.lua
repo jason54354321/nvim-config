@@ -97,7 +97,7 @@ keymap("n", "gp", "<cmd>Lspsaga peek_definition<CR>")
 
 -- Diagnsotic jump
 keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
-keymap("n", "<C-j>", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+keymap("n", "<C-m>", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 
 -- Only jump to error
