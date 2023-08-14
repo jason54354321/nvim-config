@@ -66,7 +66,7 @@ local keymap = vim.keymap.set
 keymap("n", "<leader>i", "<cmd>Telescope find_files prompt_prefix=🔍<CR>", { silent = true })
 keymap("n", "<leader>o", "<cmd>Telescope oldfiles prompt_prefix=🔍<CR>", { silent = true })
 keymap("n", "<leader>p", "<cmd>Telescope live_grep prompt_prefix=🔍<CR>", { silent = true })
-keymap("n", "<leader>l", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { silent = true })
+keymap("n", "<leader>l", ":Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>", { silent = true })
 
 --Flutter extension
 require("telescope").load_extension("file_browser")
