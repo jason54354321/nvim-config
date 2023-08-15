@@ -32,8 +32,15 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities = require('lsp-selection-range').update_capabilities(capabilities)
 
+local jdtls_filename;
+if vim.fn.has('win32') == 1 then
+	jdtls_filename = 'jdtls.cmd'
+else
+	jdtls_filename = 'jdtls'
+end
+
 local config = {
-	cmd = { jdtls_dir .. '/jdtls.cmd' },
+	cmd = { jdtls_dir .. '/' .. jdtls_filename},
 	root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
 	on_attach = java_on_attach,
 	capabilities = capabilities,
