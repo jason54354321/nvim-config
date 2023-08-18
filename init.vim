@@ -105,8 +105,8 @@ nnoremap gu :!grunt screeps
 " Quick indent
 xnoremap > >gv
 xnoremap < <gv
-" Navigation between terminal
-tnoremap <Esc> <C-\><C-n>
+" exit terminal mode and return previous buffer
+tnoremap <Esc> <C-\><C-n><C-^>
 
 
 " ------------------------------------------
