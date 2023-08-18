@@ -1,1 +1,1 @@
-autocmd BufWritePost *.java silent !mvn compile
+" autocmd BufWritePost *.java silent !mvn compile
