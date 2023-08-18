@@ -15,7 +15,7 @@
 :set smartcase
 :set scrolloff=8
 :set signcolumn=number
-:set cmdheight=2
+:set cmdheight=1
 :set updatetime=50
 :set termguicolors
 :set splitright
