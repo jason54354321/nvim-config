@@ -105,8 +105,11 @@ nnoremap gu :!grunt screeps
 " Quick indent
 xnoremap > >gv
 xnoremap < <gv
-" exit terminal mode and return previous buffer
-tnoremap <Esc> <C-\><C-n><C-^>
+" Markdown preview
+nnoremap <leader>md :MarkdownPreview<CR>
+" Move entire line up & down
+nnoremap <M-p> :m -2<CR>
+nnoremap <M-n> :m +1<CR>
 
 
 " ------------------------------------------
