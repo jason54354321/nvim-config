@@ -4,12 +4,17 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 
 require("telescope").setup({
 	defaults = {
+		layout_strategy = 'vertical',
 		layout_config = {
-			horizontal = {
-				width = { 0.5, max = 70, min = 123 },
+			vertical = {
 				preview_cutoff = 0,
-				preview_width = 0.5,
-			},
+			}
+
+			-- horizontal = {
+			-- 	width = { 0.5, max = 70, min = 123 },
+			-- 	preview_cutoff = 0,
+			-- 	preview_width = 0.5,
+			-- },
 		},
 		vimgrep_arguments = {
 			"rg",

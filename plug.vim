@@ -10,6 +10,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-commentary'
 	Plug 'bkad/CamelCaseMotion'
 
+	" markdown preview
+	Plug 'davidgranstrom/nvim-markdown-preview'
+
 	" File navigation
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
