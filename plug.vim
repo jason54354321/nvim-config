@@ -1,14 +1,18 @@
 call plug#begin('~/.config/nvim/plugged')
 
 	" Stuff
-	Plug 'cohama/lexima.vim'
-	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-	Plug 'nvim-treesitter/playground'
+	Plug 'm4xshen/autoclose.nvim'
 	Plug 'tpope/vim-surround'
 	Plug 'mg979/vim-visual-multi'
 	Plug 'matze/vim-move'
 	Plug 'tpope/vim-commentary'
 	Plug 'bkad/CamelCaseMotion'
+
+	" TreeSitter
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'nvim-treesitter/playground'
+	Plug 'windwp/nvim-ts-autotag'
+	
 
 	" markdown preview
 	Plug 'davidgranstrom/nvim-markdown-preview'

@@ -25,10 +25,6 @@
 " :let g:camelcasemotion_key = '<leader>'
 :let g:camelcasemotion_key = ','
 
-if has('win32')
-	:set shell=pwsh
-endif
-
 " --------- Import plugins ----------------
 set rtp+=~/.config/nvim/
 source ~/.config/nvim/plug.vim
@@ -100,8 +96,6 @@ nnoremap <leader>h f{da{a;0
 nnoremap <leader>/ :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 " copy to clipboard
 xnoremap <C-c> "+y
-" grunt-screeps
-nnoremap gu :!grunt screeps
 " Quick indent
 xnoremap > >gv
 xnoremap < <gv
