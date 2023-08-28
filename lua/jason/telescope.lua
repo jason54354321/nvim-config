@@ -66,12 +66,35 @@ require("telescope").setup({
 	}
 })
 
+
+local function lsp_definitions()
+	require("telescope.builtin").lsp_definitions({
+		show_line = false,
+	})
+end
+
+local function lsp_references()
+	require("telescope.builtin").lsp_references({
+		show_line = false,
+	})
+end
+
+local function lsp_implementations()
+	require("telescope.builtin").lsp_implementations({
+		show_line = false,
+	})
+end
+
 -- Key mappings
 local keymap = vim.keymap.set
 keymap("n", "<leader>i", "<cmd>Telescope find_files prompt_prefix=🔍 hidden=true<CR>", { silent = true })
 keymap("n", "<leader>o", "<cmd>Telescope oldfiles prompt_prefix=🔍<CR>", { silent = true })
 keymap("n", "<leader>p", "<cmd>Telescope live_grep prompt_prefix=🔍<CR>", { silent = true })
 keymap("n", "<leader>l", ":Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>", { silent = true })
+keymap("n", "gd", lsp_definitions, { silent = true })
+keymap("n", "gr", lsp_references, { silent = true })
+keymap("n", "gu", lsp_implementations, { silent = true })
+
 
 --Flutter extension
 require("telescope").load_extension("file_browser")

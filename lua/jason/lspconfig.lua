@@ -1,5 +1,11 @@
 local nvim_lsp = require('lspconfig')
-local servers = { 'tsserver', 'vimls', 'clangd', 'pyright', 'dockerls', 'docker_compose_language_service' }
+local servers = { 'tsserver',
+	'vimls',
+	'clangd',
+	'pyright',
+	'dockerls',
+	'docker_compose_language_service',
+}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -11,8 +17,6 @@ on_attach = function(client, bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-	vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	vim.keymap.set('n', '<Bslash>f', vim.lsp.buf.format, bufopts)
 	vim.keymap.set('n', 'm', [[<cmd>lua require('lsp-selection-range').trigger()<CR>]], bufopts)
 	vim.keymap.set('v', 'm', [[<cmd>lua require('lsp-selection-range').expand()<CR>]], bufopts)
@@ -24,6 +28,11 @@ on_attach = function(client, bufnr)
 		vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 		vim.api.nvim_command [[augroup END]]
 	end
+
+	-- disable shit-like lsp highlight
+	for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+		vim.api.nvim_set_hl(0, group, {})
+	end
 end
 
 on_attach_go = function(client, bufnr)
@@ -34,9 +43,6 @@ on_attach_go = function(client, bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-	vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	vim.keymap.set('n', '<Bslash>f', "<Plug>(go-fmt)", bufopts)
 	vim.keymap.set('n', 'm', [[<cmd>lua require('lsp-selection-range').trigger()<CR>]], bufopts)
 	vim.keymap.set('v', 'm', [[<cmd>lua require('lsp-selection-range').expand()<CR>]], bufopts)
