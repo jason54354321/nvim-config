@@ -8,19 +8,21 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-commentary'
 	Plug 'bkad/CamelCaseMotion'
 
+	
+	" markdown preview
+	Plug 'davidgranstrom/nvim-markdown-preview'
+
 	" TreeSitter
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'nvim-treesitter/playground'
 	Plug 'windwp/nvim-ts-autotag'
-	
-
-	" markdown preview
-	Plug 'davidgranstrom/nvim-markdown-preview'
 
 	" File navigation
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 	Plug 'nvim-telescope/telescope-file-browser.nvim'
+	Plug 'barrett-ruth/telescope-http.nvim'
+
 	Plug 'ThePrimeagen/harpoon'
 
 	" Lsp plugin

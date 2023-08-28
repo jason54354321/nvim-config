@@ -95,8 +95,13 @@ keymap("n", "gd", lsp_definitions, { silent = true })
 keymap("n", "gr", lsp_references, { silent = true })
 keymap("n", "gu", lsp_implementations, { silent = true })
 
+-- Flutter
+keymap("n", "<leader>f", "<cmd>Telescope flutter commands<CR>", { silent = true })
+-- Http status code
+keymap("n", "<Bslash>g", "<cmd>Telescope http list<CR>")
 
---Flutter extension
+-- Load extension
+require("telescope").load_extension("harpoon")
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("flutter")
-keymap("n", "<leader>f", "<cmd>Telescope flutter commands<CR>", { silent = true })
+require("telescope").load_extension("http")

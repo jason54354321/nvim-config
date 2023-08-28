@@ -16,6 +16,7 @@
 :set scrolloff=4
 :set signcolumn=number
 :set cmdheight=1
+:set numberwidth=5
 :set updatetime=50
 :set termguicolors
 :set splitright
@@ -59,19 +60,24 @@ source ~/.config/nvim/colors/cmp_hi.vim
 " -----------------------------------------
 
 
-" --------- Current line highlight --------
-" :set cursorline
-" hi cursorline guibg=#213c52
-" hi cursorlineNr guibg=none guifg=#3F5F8F
-" hi cursorlineNr guibg=none guifg=#888888
-" hi cursorlineNr guibg=none guifg=#18466b
-" hi LineNr guibg=none guifg=#215052
-" hi LineNr guibg=none guifg=#0c5154
-hi LineNr guibg=none guifg=#444d5e
+" --------- highlight --------
+:set cursorline
+hi LineNr guibg=none guifg=#959895
+hi CursorLineNr guibg=none guifg=#959895
+hi @Comment guibg=none guifg=#828f94
 " ----------------------------------
 
 
-" --------- Key bindings ------------------
+" --------- Key mapping ------------------
+nnoremap <leader>q :q<CR>
+" start-of-line/end-of-line
+nnoremap H ^
+nnoremap L $
+
+" scroll
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+
 nnoremap <leader>vv :Vex!<CR>
 nnoremap <C-a> <C-^>
 nnoremap <C-w>s <C-w>v
@@ -88,8 +94,12 @@ autocmd VimEnter * nnoremap <C-Up> <C-w>-
 
 nnoremap <esc> :noh<CR>
 
-" It's for multiple yank and paste action, not affecting single ones.
-xnoremap <leader>p "_dP
+" Paste without refresh yank buffer
+xnoremap p P
+" Delete without refresh yank buffer
+nnoremap <leader>d "_d
+
+ 
 " c++: trim a defined method to declare state
 nnoremap <leader>h f{da{a;0
 " c++: Quickly switch between .h and .cpp files
@@ -101,10 +111,9 @@ xnoremap > >gv
 xnoremap < <gv
 " Markdown preview
 nnoremap <leader>md :MarkdownPreview<CR>
-" Move entire line up & down
-nnoremap <M-p> :m -2<CR>
-nnoremap <M-n> :m +1<CR>
-
+" Move line up & down in visual mode 
+xnoremap  J :m '>+1<CR>gv=gv
+xnoremap  K :m '<-2<CR>gv=gv
 
 " ------------------------------------------
 
@@ -122,5 +131,17 @@ let g:UltiSnipsEditSplit="vertical"
 " ------------------------------------------
 
 " --------- Others  ------------------
-"
+" go to last loc when opening a buffer
+lua << EOF
+vim.api.nvim_create_autocmd("BufReadPost", {
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local lcount = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= lcount then
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+    end
+  end,
+})
+EOF
+
 " ------------------------------------------
