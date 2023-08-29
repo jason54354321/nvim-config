@@ -9,7 +9,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'bkad/CamelCaseMotion'
 
 	
-	" markdown preview
+	" Markdown preview
 	Plug 'davidgranstrom/nvim-markdown-preview'
 
 	" TreeSitter
@@ -17,13 +17,13 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-treesitter/playground'
 	Plug 'windwp/nvim-ts-autotag'
 
-	" File navigation
+	" To become BLAZING fast
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 	Plug 'nvim-telescope/telescope-file-browser.nvim'
 	Plug 'barrett-ruth/telescope-http.nvim'
-
 	Plug 'ThePrimeagen/harpoon'
+	Plug 'ggandor/leap.nvim'
 
 	" Lsp plugin
 	Plug 'neovim/nvim-lspconfig'
