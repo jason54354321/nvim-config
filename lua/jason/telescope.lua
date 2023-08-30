@@ -4,17 +4,73 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 
 require("telescope").setup({
 	defaults = {
+		-- prompt_prefix = "🔍 ",
+		prompt_prefix = "   ",
+		selection_caret = "  ",
+		entry_prefix = "   ",
+		results_title = "",
+		sorting_strategy = "ascending",
 		layout_strategy = 'vertical',
 		layout_config = {
 			vertical = {
-				preview_cutoff = 0,
-			}
-
+				preview_cutoff = 25,
+				prompt_position = "top",
+				preview_height = 0.4,
+			},
 			-- horizontal = {
 			-- 	width = { 0.5, max = 70, min = 123 },
 			-- 	preview_cutoff = 0,
 			-- 	preview_width = 0.5,
 			-- },
+		},
+		file_ignore_patterns = {
+			".git/*",
+			"target/",
+			"docs/",
+			"vendor/*",
+			"%.lock",
+			"__pycache__/*",
+			"%.sqlite3",
+			"%.ipynb",
+			"node_modules/*",
+			"%.svg",
+			"%.otf",
+			"%.ttf",
+			"%.webp",
+			".dart_tool/",
+			".github/",
+			".gradle/",
+			".idea/",
+			".settings/",
+			".vscode/",
+			"__pycache__/",
+			"build/",
+			"gradle/",
+			"node_modules/",
+			"%.pdb",
+			"%.dll",
+			"%.class",
+			"%.exe",
+			"%.cache",
+			"%.ico",
+			"%.pdf",
+			"%.dylib",
+			"%.jar",
+			"%.docx",
+			"%.met",
+			"smalljre_*/*",
+			".vale/",
+			"%.burp",
+			"%.mp4",
+			"%.mkv",
+			"%.rar",
+			"%.zip",
+			"%.7z",
+			"%.tar",
+			"%.bz2",
+			"%.epub",
+			"%.flac",
+			"%.tar.gz",
 		},
 		vimgrep_arguments = {
 			"rg",
@@ -41,7 +97,6 @@ require("telescope").setup({
 	},
 	extensions = {
 		file_browser = {
-			theme = "dropdown",
 			-- disables netrw and use telescope-file-browser in its place
 			hijack_netrw = true,
 			mappings = {
@@ -87,9 +142,9 @@ end
 
 -- Key mappings
 local keymap = vim.keymap.set
-keymap("n", "<leader>i", "<cmd>Telescope find_files prompt_prefix=🔍 hidden=true<CR>", { silent = true })
-keymap("n", "<leader>o", "<cmd>Telescope oldfiles prompt_prefix=🔍<CR>", { silent = true })
-keymap("n", "<leader>p", "<cmd>Telescope live_grep prompt_prefix=🔍<CR>", { silent = true })
+keymap("n", "<leader>i", "<cmd>Telescope find_files hidden=true<CR>", { silent = true })
+keymap("n", "<leader>o", "<cmd>Telescope oldfiles<CR>", { silent = true })
+keymap("n", "<leader>p", "<cmd>Telescope live_grep<CR>", { silent = true })
 keymap("n", "<leader>l", ":Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>", { silent = true })
 keymap("n", "gd", lsp_definitions, { silent = true })
 keymap("n", "gr", lsp_references, { silent = true })
