@@ -1,6 +1,6 @@
 " hi PmenuSel  guibg=#282C34, guifg=None
-hi PmenuSel  guibg=#FF2C34 guifg=#39F333
 hi Pmenu guifg=#C5CDD9 guibg=#22252A 
+hi PmenuSel guibg=#9FBD73 
 hi CmpItemAbbr guifg=#C5CDD9 guibg=None 
 
 hi CmpItemAbbrDeprecated guifg=#7E8294 guibg=NONE gui=strikethrough

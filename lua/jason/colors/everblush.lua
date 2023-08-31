@@ -1,16 +1,22 @@
+local p = require('everblush.palette')
+
 require('everblush').setup({
 
-    -- Default options
-    override = {},
-    transparent_background = true,
-    nvim_tree = {
-        contrast = false,
-    },
-    -- Set transparent background
-    transparent_background = true,
+	-- Override the default highlights using Everblush or other colors
+	override = {
+		TelescopeSelection = { fg = p.background, bg = p.color10 },
+		-- TelescopeBorder = {},
+		-- TelescopeNormal = {},
+		-- TelescopeSelection = {},
+		TelescopeBorder = { fg = p.color0, bg = background },
+		TelescopeNormal = { fg = p.foreground, bg = background },
 
-    -- Set contrast for nvim-tree highlights
-    nvim_tree = {
-        contrast = true,
-    },
+	},
+	-- Set transparent background
+	transparent_background = true,
+
+	-- Set contrast for nvim-tree highlights
+	nvim_tree = {
+		contrast = true,
+	},
 })

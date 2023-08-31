@@ -71,7 +71,7 @@ hi @Comment guibg=none guifg=#828f94
 " --------- Key mapping ------------------
 nnoremap <leader>q :q<CR>
 " start-of-line/end-of-line
-nnoremap H ^
+nnoremap H 0
 nnoremap L $
 
 " scroll
@@ -102,8 +102,6 @@ nnoremap <leader>d "_d
  
 " c++: trim a defined method to declare state
 nnoremap <leader>h f{da{a;0
-" c++: Quickly switch between .h and .cpp files
-nnoremap <leader>/ :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 " copy to clipboard
 xnoremap <C-c> "+y
 " Quick indent
@@ -132,6 +130,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 " --------- Others  ------------------
 " go to last loc when opening a buffer
+
 lua << EOF
 vim.api.nvim_create_autocmd("BufReadPost", {
   callback = function()

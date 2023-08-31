@@ -15,7 +15,7 @@ require("telescope").setup({
 			vertical = {
 				preview_cutoff = 25,
 				prompt_position = "top",
-				preview_height = 0.4,
+				preview_height = 0.45,
 			},
 			-- horizontal = {
 			-- 	width = { 0.5, max = 70, min = 123 },
@@ -84,7 +84,7 @@ require("telescope").setup({
 		mappings = {
 			i = {
 				["<Esc>"] = actions.close,
-				["<leader>"] = actions.close,
+				-- ["<leader>"] = actions.close,
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
 				["<C-s>"] = actions.select_vertical,
@@ -140,6 +140,13 @@ local function lsp_implementations()
 	})
 end
 
+local function lsp_incoming_calls()
+	require("telescope.builtin").lsp_incoming_calls({
+		show_line = false,
+	})
+end
+
+
 -- Key mappings
 local keymap = vim.keymap.set
 keymap("n", "<leader>i", "<cmd>Telescope find_files hidden=true<CR>", { silent = true })
@@ -149,6 +156,7 @@ keymap("n", "<leader>l", ":Telescope file_browser path=%:p:h select_buffer=true 
 keymap("n", "gd", lsp_definitions, { silent = true })
 keymap("n", "gr", lsp_references, { silent = true })
 keymap("n", "gu", lsp_implementations, { silent = true })
+keymap("n", "ga", lsp_incoming_calls, { silent = true })
 
 -- Flutter
 keymap("n", "<leader>f", "<cmd>Telescope flutter commands<CR>", { silent = true })
