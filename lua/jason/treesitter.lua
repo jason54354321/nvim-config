@@ -1,6 +1,7 @@
 if vim.fn.has('win32') == 1 then
 	require 'nvim-treesitter.install'.compilers = { "clang" }
 end
+
 require 'nvim-treesitter.configs'.setup {
 	autotag = {
 		enable = true,

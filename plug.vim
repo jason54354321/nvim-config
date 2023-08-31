@@ -46,6 +46,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-lualine/lualine.nvim'
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
+	Plug 'https://github.com/tzachar/local-highlight.nvim'
 
 	" Flutter
 	Plug 'nvim-lua/plenary.nvim'
