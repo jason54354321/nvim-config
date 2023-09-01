@@ -88,7 +88,6 @@ require("telescope").setup({
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
 				["<C-s>"] = actions.select_vertical,
-				["<C-u>"] = function() vim.cmd('normal vbd') end,
 			},
 			n = {
 				["<C-s>"] = actions.select_vertical,
@@ -102,7 +101,6 @@ require("telescope").setup({
 			mappings = {
 				-- your custom insert mode mappings
 				["i"] = {
-					["<C-u>"] = function() vim.cmd('normal vbd') end,
 					["<C-l>"] = fb_actions.create,
 					["<C-r>"] = fb_actions.rename,
 					["<C-d>"] = fb_actions.remove,
@@ -153,6 +151,8 @@ keymap("n", "<leader>i", "<cmd>Telescope find_files hidden=true<CR>", { silent =
 keymap("n", "<leader>o", "<cmd>Telescope oldfiles<CR>", { silent = true })
 keymap("n", "<leader>p", "<cmd>Telescope live_grep<CR>", { silent = true })
 keymap("n", "<leader>l", ":Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>", { silent = true })
+keymap("n", "<Bslash>g", "<cmd>Telescope git_commits<CR>", { silent = true })
+keymap("n", "<Bslash>b", "<cmd>Telescope git_bcommits<CR>", { silent = true })
 keymap("n", "gd", lsp_definitions, { silent = true })
 keymap("n", "gr", lsp_references, { silent = true })
 keymap("n", "gu", lsp_implementations, { silent = true })
@@ -161,7 +161,7 @@ keymap("n", "ga", lsp_incoming_calls, { silent = true })
 -- Flutter
 keymap("n", "<leader>f", "<cmd>Telescope flutter commands<CR>", { silent = true })
 -- Http status code
-keymap("n", "<Bslash>g", "<cmd>Telescope http list<CR>")
+keymap("n", "<Bslash>h", "<cmd>Telescope http list<CR>")
 
 -- Load extension
 require("telescope").load_extension("harpoon")

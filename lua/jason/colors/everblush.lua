@@ -4,12 +4,12 @@ require('everblush').setup({
 
 	-- Override the default highlights using Everblush or other colors
 	override = {
-		TelescopeSelection = { fg = p.background, bg = p.color10 },
-		-- TelescopeBorder = {},
-		-- TelescopeNormal = {},
-		-- TelescopeSelection = {},
-		TelescopeBorder = { fg = p.color0, bg = background },
-		TelescopeNormal = { fg = p.foreground, bg = background },
+		TelescopeSelection = { fg = p.background, bg = p.color3 },
+		TelescopeBorder = { fg = p.color3 },
+		TelescopeNormal = { fg = p.foreground },
+		["@Comment"] = { fg = "#717e83" },
+		["@Exception"] = { fg = "#717e83" },
+		["@Float"] = { fg = "#717e83" },
 
 	},
 	-- Set transparent background
