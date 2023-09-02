@@ -79,6 +79,8 @@ nnoremap <leader>q :q<CR>
 " start-of-line/end-of-line
 nnoremap H 0
 nnoremap L $
+xnoremap H ^
+xnoremap L $
 
 " scroll
 nnoremap <C-u> <C-u>zz
@@ -103,7 +105,7 @@ nnoremap <esc> :noh<CR>
 " Paste without refresh yank buffer
 xnoremap p P
 " Delete without refresh yank buffer
-nnoremap <leader>d "_d
+xnoremap <leader>d "_d
 
  
 " c++: trim a defined method to declare state
