@@ -20,6 +20,12 @@
 :set updatetime=50
 :set termguicolors
 :set splitright
+set shell=pwsh.exe
+set shellxquote=
+let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command '
+let &shellquote   = ''
+let &shellpipe    = '| Out-File -Encoding UTF8 %s'
+let &shellredir   = '| Out-File -Encoding UTF8 %s'
 :let mapleader=" "
 
 " CamelCaseMotion
