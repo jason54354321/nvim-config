@@ -9,12 +9,11 @@ local java_exe_or_bin
 local config_dir
 if vim.fn.has('win32') == 1 then
 	path_to_jar = path_to_plugins .. "org.eclipse.equinox.launcher_1.6.500.v20230622-2056.jar"
-	java_exe_or_bin = java_home .. '/bin/java.exe' 
+	java_exe_or_bin = java_home .. '/bin/java.exe'
 	config_dir = jdtls_dir .. "/config_win"
-
 else
 	path_to_jar = path_to_plugins .. "org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar"
-	java_exe_or_bin = java_home .. '/bin/java' 
+	java_exe_or_bin = java_home .. '/bin/java'
 	config_dir = jdtls_dir .. "/config_linux"
 end
 
@@ -28,10 +27,15 @@ end
 -- An example how you could accomplish that is to infer the workspace directory name from the current working directory
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = vim.fn.stdpath('data') .. '/site/java/workspace-root/' .. project_name
+
 if vim.fn.has('win32') == 1 then
+	-- Windows
 	os.execute("mkdir " .. workspace_dir)
+	vim.cmd("silent !rm " .. workspace_dir .. " -Force -Recurse")
 else
+	-- Unix
 	os.execute("mkdir -p " .. workspace_dir)
+	vim.cmd("!rm " .. workspace_dir .. " -rf")
 end
 
 -- Main Config
