@@ -8,6 +8,7 @@ local function leap_prefix()
 end
 
 keymap("n", "s", leap_prefix, { silent = true })
+keymap("v", "s", leap_prefix, { silent = true })
 vim.api.nvim_set_hl(0, 'LeapBackdrop', { fg = '#777777' })
 -- The below settings make Leap's highlighting closer to what you've been
 -- used to in Lightspeed.
