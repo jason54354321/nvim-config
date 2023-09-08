@@ -20,17 +20,18 @@
 :set updatetime=50
 :set termguicolors
 :set splitright
-set shell=pwsh.exe
-set shellxquote=
-let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command '
-let &shellquote   = ''
-let &shellpipe    = '| Out-File -Encoding UTF8 %s'
-let &shellredir   = '| Out-File -Encoding UTF8 %s'
 :let mapleader=" "
 
-" CamelCaseMotion
-" :let g:camelcasemotion_key = '<leader>'
-:let g:camelcasemotion_key = ','
+if has("win32")
+	set shell=pwsh.exe
+	set shellxquote=
+	let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command '
+	let &shellquote   = ''
+	let &shellpipe    = '| Out-File -Encoding UTF8 %s'
+	let &shellredir   = '| Out-File -Encoding UTF8 %s'
+endif
+
+
 
 " --------- Import plugins ----------------
 set rtp+=~/.config/nvim/
@@ -38,6 +39,8 @@ source ~/.config/nvim/plug.vim
 lua require('jason')
 " -----------------------------------------
 
+" CamelCaseMotion
+:let g:camelcasemotion_key = ','
 
 " --------- Dart settings -----------------
 let dart_html_in_string=v:true
