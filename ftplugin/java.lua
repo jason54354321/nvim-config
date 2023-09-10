@@ -16,7 +16,6 @@ else
 	path_to_jar = path_to_plugins .. "org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar"
 	java_exe_or_bin = java_home .. '/bin/java' 
 	config_dir = jdtls_dir .. "/config_linux"
-
 end
 
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
@@ -29,8 +28,6 @@ end
 -- An example how you could accomplish that is to infer the workspace directory name from the current working directory
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = vim.fn.stdpath('data') .. '/site/java/workspace-root/' .. project_name
-print("workspace_dir:")
-print(workspace_dir)
 if vim.fn.has('win32') == 1 then
 	os.execute("mkdir " .. workspace_dir)
 else
