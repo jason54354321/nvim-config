@@ -9,6 +9,7 @@ require('everblush').setup({
 		TelescopeMatching = { fg = p.color10 },
 		TelescopeBorder = { fg = p.color11 },
 		TelescopeNormal = { fg = p.foreground },
+		Comment = { fg = cp.comment_gray },
 		["@Comment"] = { fg = cp.comment_gray },
 		["@Exception"] = { fg = cp.comment_gray },
 		["@Float"] = { fg = cp.comment_gray },

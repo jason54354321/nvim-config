@@ -4,7 +4,10 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 
 require("telescope").setup({
 	defaults = {
-		-- prompt_prefix = "🔍 ",
+		path_display = function(opts, path)
+			local tail = require("telescope.utils").path_tail(path)
+			return string.format("%s  (%s)", tail, path)
+		end,
 		prompt_prefix = "   ",
 		selection_caret = "  ",
 		entry_prefix = "   ",
@@ -98,6 +101,7 @@ require("telescope").setup({
 		file_browser = {
 			-- disables netrw and use telescope-file-browser in its place
 			hijack_netrw = true,
+			path_display = { "smart" },
 			mappings = {
 				-- your custom insert mode mappings
 				["i"] = {
