@@ -19,6 +19,8 @@ require 'nvim-treesitter.configs'.setup {
 		disable = {},
 	},
 	ensure_installed = {
+		"vim",
+		"lua",
 		"c",
 		"cpp",
 		"tsx",
