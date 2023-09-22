@@ -5,6 +5,7 @@ local servers = { 'tsserver',
 	'pyright',
 	'dockerls',
 	'docker_compose_language_service',
+	'vuels',
 }
 
 -- Use an on_attach function to only map the following keys
