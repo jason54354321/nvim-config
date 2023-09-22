@@ -13,7 +13,6 @@
 :set nowrap
 :set ignorecase
 :set smartcase
-:set scrolloff=4
 :set signcolumn=number
 :set cmdheight=1
 :set numberwidth=5
@@ -21,6 +20,9 @@
 :set termguicolors
 :set splitright
 :let mapleader=" "
+
+" dynamic scrolloff
+:autocmd VimEnter,VimResized * let &scrolloff = winheight(0) / 4
 
 if has("win32")
 	set shell=pwsh.exe
