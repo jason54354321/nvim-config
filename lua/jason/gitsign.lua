@@ -6,13 +6,13 @@ local on_attach = function(bufnr)
 		vim.keymap.set(mode, l, r, opts)
 	end
 	-- Navigation
-	map('n', ']c', function()
+	map('n', '<F4>', function()
 		if vim.wo.diff then return ']c' end
 		vim.schedule(function() gs.next_hunk() end)
 		return '<Ignore>'
 	end, { expr = true })
 
-	map('n', '[c', function()
+	map('n', '<F3>', function()
 		if vim.wo.diff then return '[c' end
 		vim.schedule(function() gs.prev_hunk() end)
 		return '<Ignore>'
