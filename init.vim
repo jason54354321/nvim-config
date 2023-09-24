@@ -13,7 +13,7 @@
 :set nowrap
 :set ignorecase
 :set smartcase
-:set signcolumn=yes:2
+:set signcolumn=number
 :set cmdheight=2
 :set numberwidth=5
 :set updatetime=50
