@@ -7,6 +7,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'matze/vim-move'
 	Plug 'tpope/vim-commentary'
 	Plug 'bkad/CamelCaseMotion'
+	Plug 'tpope/vim-fugitive'
 
 	
 	" Markdown preview
