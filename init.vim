@@ -13,8 +13,8 @@
 :set nowrap
 :set ignorecase
 :set smartcase
-:set signcolumn=number
-:set cmdheight=1
+:set signcolumn=yes:2
+:set cmdheight=2
 :set numberwidth=5
 :set updatetime=50
 :set termguicolors
