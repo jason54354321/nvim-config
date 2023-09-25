@@ -15,6 +15,8 @@ require('everblush').setup({
 		["@Float"] = { fg = cp.comment_gray },
 		-- Visual = { fg = p.foreground, bg = cp.visual },
 		Visual = { fg = cp.visual_fg, bg = cp.visual_bg },
+		TermCursor = { bg = p.foreground },
+		TermCursorNC = { bg = p.foreground },
 
 	},
 	-- Set transparent background
