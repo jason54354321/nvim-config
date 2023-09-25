@@ -8,20 +8,7 @@ local servers = { 'tsserver',
 	'vuels',
 }
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-on_attach = function(client, bufnr)
-	-- Enable completion triggered by <c-x><c-o>
-	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-	-- Mappings.
-	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-
-	vim.keymap.set('n', '<Bslash>f', vim.lsp.buf.format, bufopts)
-	vim.keymap.set('n', 'm', [[<cmd>lua require('lsp-selection-range').trigger()<CR>]], bufopts)
-	vim.keymap.set('v', 'm', [[<cmd>lua require('lsp-selection-range').expand()<CR>]], bufopts)
-
+local enable_format = function(client)
 	-- formatting
 	if client.server_capabilities.documentFormattingProvider then
 		vim.api.nvim_command [[augroup Format]]
@@ -29,14 +16,9 @@ on_attach = function(client, bufnr)
 		vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 		vim.api.nvim_command [[augroup END]]
 	end
-
-	-- disable shit-like lsp highlight
-	for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-		vim.api.nvim_set_hl(0, group, {})
-	end
 end
 
-on_attach_go = function(client, bufnr)
+local on_attach_default = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -46,7 +28,23 @@ on_attach_go = function(client, bufnr)
 
 	vim.keymap.set('n', '<Bslash>f', "<Plug>(go-fmt)", bufopts)
 	vim.keymap.set('n', 'm', [[<cmd>lua require('lsp-selection-range').trigger()<CR>]], bufopts)
-	vim.keymap.set('v', 'm', [[<cmd>lua require('lsp-selection-range').expand()<CR>]], bufopts)
+	vim.keymap.set('x', 'm', [[<cmd>lua require('lsp-selection-range').expand()<CR>]], bufopts)
+
+	-- disable shit-like lsp highlight
+	for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+		vim.api.nvim_set_hl(0, group, {})
+	end
+end
+
+---@diagnostic disable-next-line: lowercase-global
+on_attach = function(client, bufnr)
+	on_attach_default(client, bufnr)
+end
+
+---@diagnostic disable-next-line: lowercase-global
+on_attach_go = function(client, bufnr)
+	on_attach_default(client, bufnr)
+	enable_format(client)
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
