@@ -26,7 +26,7 @@ local on_attach_default = function(client, bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-	vim.keymap.set('n', '<Bslash>f', "<Plug>(go-fmt)", bufopts)
+	vim.keymap.set('n', '<Bslash>f', vim.lsp.buf.format, bufopts)
 	vim.keymap.set('n', 'm', [[<cmd>lua require('lsp-selection-range').trigger()<CR>]], bufopts)
 	vim.keymap.set('x', 'm', [[<cmd>lua require('lsp-selection-range').expand()<CR>]], bufopts)
 
@@ -45,6 +45,8 @@ end
 ---@diagnostic disable-next-line: lowercase-global
 on_attach_go = function(client, bufnr)
 	on_attach_default(client, bufnr)
+	-- replace backslash
+	vim.keymap.set('n', '<Bslash>f', "<Plug>(go-fmt)", bufopts)
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
