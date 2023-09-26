@@ -39,12 +39,12 @@ end
 ---@diagnostic disable-next-line: lowercase-global
 on_attach = function(client, bufnr)
 	on_attach_default(client, bufnr)
+	enable_format(client)
 end
 
 ---@diagnostic disable-next-line: lowercase-global
 on_attach_go = function(client, bufnr)
 	on_attach_default(client, bufnr)
-	enable_format(client)
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
