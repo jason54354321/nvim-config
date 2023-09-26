@@ -41,6 +41,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'onsails/lspkind.nvim'
 	Plug 'camilledejoye/nvim-lsp-selection-range'
 	Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
+	Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 
 	" Theme & Apearance
 	Plug 'navarasu/onedark.nvim'
