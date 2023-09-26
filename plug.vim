@@ -43,6 +43,10 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 	Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 
+	" Debugger
+	Plug 'mfussenegger/nvim-dap'
+	Plug 'rcarriga/nvim-dap-ui'
+
 	" Theme & Apearance
 	Plug 'navarasu/onedark.nvim'
 	Plug 'Mofiqul/vscode.nvim'
