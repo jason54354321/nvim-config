@@ -32,5 +32,7 @@ require 'nvim-treesitter.configs'.setup {
 		"go",
 		"dart",
 		"vue",
+		"markdown",
+		"markdown_inline",
 	}
 }
