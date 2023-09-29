@@ -28,6 +28,7 @@ require("telescope").setup({
 		},
 		file_ignore_patterns = {
 			"^.git/*",
+			"./.git/*",
 			"target/",
 			"docs/",
 			"vendor/*",
