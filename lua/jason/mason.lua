@@ -1,23 +1,25 @@
 require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    },
+	ui = {
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗"
+		}
+	},
 })
 
-require('mason-tool-installer').setup {
-		 ensure_installed = {
-			-- lsp
-			"clangd",
-			"jdtls",
-			"lua-language-server",
-			"pyright",
-			"typescript-language-server",
-			"vim-language-server",
-			-- dap
-			"codelldb",
-		}
+require("mason-tool-installer").setup {
+	ensure_installed = {
+		-- lsp
+		"clangd",
+		"jdtls",
+		"lua-language-server",
+		"pyright",
+		"typescript-language-server",
+		"vim-language-server",
+		"bash-language-server",
+
+		-- dap
+		"codelldb",
+	}
 }
