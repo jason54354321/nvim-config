@@ -19,6 +19,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'nvim-treesitter/playground'
 	Plug 'windwp/nvim-ts-autotag'
+	Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 	" To become BLAZING fast
 	Plug 'nvim-lua/plenary.nvim'
