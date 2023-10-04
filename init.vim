@@ -19,7 +19,7 @@
 :set updatetime=50
 :set termguicolors
 :set splitright
-:set fileformats=unix
+" :set fileformats=unix
 :let mapleader=" "
 
 " dynamic scrolloff
