@@ -4,6 +4,12 @@ local dapui = require("dapui")
 local data_path = vim.fn.stdpath('data')
 local mason_bin_path = data_path .. '/mason/bin/';
 
+local keymap = vim.keymap.set
+keymap("n", "<F1>", ":lua require('dap').continue()<CR>", { silent = true })
+keymap("n", "<F2>", ":lua require('dap').toggle_breakpoint()<CR>", { silent = true })
+keymap("n", "<F3>", ":lua require('dap').step_over()<CR>", { silent = true })
+keymap("n", "<F4>", ":lua require('dap').step_into()<CR>", { silent = true })
+
 -- TODO: UI needed to RICE
 -- TODO: Keybinding?
 -- dap-ui
