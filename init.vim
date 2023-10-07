@@ -119,8 +119,6 @@ xnoremap p P
 xnoremap <leader>d "_d
 
  
-" c++: trim a defined method to declare state
-nnoremap <leader>h f{da{a;0
 " copy to clipboard
 xnoremap <C-c> "+y
 " Quick indent
