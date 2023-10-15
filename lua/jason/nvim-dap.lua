@@ -25,6 +25,13 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 	dapui.close()
 end
 
+local adapter_path
+if vim.fn.has('win32') == 1 then
+	adapter_path = mason_bin_path .. 'codelldb.cmd'
+else
+	adapter_path = mason_bin_path .. 'codelldb'
+end
+print("Printing adapter_path:" .. adapter_path)
 
 -- TODO: needs to adapt to unix os(Unix dosen't have .cmd extension)
 -- adapters
@@ -33,7 +40,7 @@ dap.adapters.codelldb = {
 	port = "${port}",
 	executable = {
 		-- CHANGE THIS to your path!
-		command = mason_bin_path .. 'codelldb.cmd',
+		command = adapter_path,
 		args = { "--port", "${port}" },
 
 		-- On windows you may have to uncomment this:
