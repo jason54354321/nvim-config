@@ -7,6 +7,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'matze/vim-move'
 	Plug 'tpope/vim-commentary'
 	Plug 'bkad/CamelCaseMotion'
+	Plug 'dstein64/vim-startuptime'
 
 	" Git
 	Plug 'tpope/vim-fugitive'
