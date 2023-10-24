@@ -29,7 +29,6 @@ saga.setup({
 			tabe = 't',
 			tabnew = 'r',
 			quit = { 'q', '<ESC>' },
-			close_in_preview = 'q',
 		},
 	},
 	lightbulb = {
