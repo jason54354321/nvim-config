@@ -24,7 +24,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" To become BLAZING fast
 	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'nvim-telescope/telescope-file-browser.nvim'
 	Plug 'barrett-ruth/telescope-http.nvim'
 	Plug 'ThePrimeagen/harpoon'
