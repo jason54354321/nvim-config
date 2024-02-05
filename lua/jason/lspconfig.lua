@@ -7,6 +7,7 @@ local servers = { 'tsserver',
 	'docker_compose_language_service',
 	'vuels',
 	'bashls',
+	'kotlin_language_server',
 }
 
 local enable_format = function(client)

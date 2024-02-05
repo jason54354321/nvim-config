@@ -44,6 +44,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'camilledejoye/nvim-lsp-selection-range'
 	Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 	Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
+	" Plug 'udalov/kotlin-vim'
 
 	" Debugger
 	Plug 'mfussenegger/nvim-dap'
