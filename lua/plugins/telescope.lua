@@ -1,7 +1,91 @@
+local function find_files()
+  local opts = {
+    -- no_ignore = true,
+    hidden = true,
+  }
+
+  require("telescope.builtin").find_files(opts)
+end
+
+local function old_files()
+  local opts = {
+    --
+  }
+
+  require("telescope.builtin").oldfiles(opts)
+end
+
+local function live_grep()
+  local opts = {
+    --
+  }
+
+  require("telescope.builtin").live_grep(opts)
+end
+
+local function file_browser()
+  local opts = {
+    --
+    path = "%:p:h",
+    select_buffer = true,
+    hidden = true,
+  }
+
+  require("telescope").extensions.file_browser.file_browser(opts)
+end
+
+local function lsp_definitions()
+  require("telescope.builtin").lsp_definitions({
+    show_line = false,
+  })
+end
+
+local function lsp_references()
+  require("telescope.builtin").lsp_references({
+    show_line = false,
+  })
+end
+
+local function lsp_implementations()
+  require("telescope.builtin").lsp_implementations({
+    show_line = false,
+  })
+end
+
+local function lsp_incoming_calls()
+  require("telescope.builtin").lsp_incoming_calls({
+    show_line = false,
+  })
+end
+
 return {
   'nvim-telescope/telescope.nvim',
-  dependencies = { 'nvim-lua/plenary.nvim' },
+  dependencies = {
+    'nvim-lua/plenary.nvim' ,
+    'nvim-telescope/telescope-file-browser.nvim',
+    'barrett-ruth/telescope-http.nvim'
+  },
   cmd = "Telescope",
+  keys = {
+    {"<leader>i", find_files, mode = "n", desc = "Find Files"},
+    {"<leader>o", old_files, mode = "n", desc = "Old Files"},
+    {"<leader>p", live_grep, mode = "n", desc = "Live Grep"},
+    {"<leader>l", file_browser, mode = "n", desc = "File Browser"},
+
+    -- Git
+    {"<Bslash>g", "<cmd>Telescope git_commits<CR>", mode = "n", desc = "Commits"},
+    {"<Bslash>b", "<cmd>Telescope git_bcommits<CR>", mode = "n", desc = "Buffer's Commits"},
+
+    -- Lsp
+    {"gd", lsp_definitions, mode = "n", desc = "Buffer's Commits"},
+    {"gr", lsp_references, mode = "n", desc = "Buffer's Commits"},
+    {"gu", lsp_implementations, mode = "n", desc = "Buffer's Commits"},
+    {"ga", lsp_incoming_calls, mode = "n", desc = "Buffer's Commits"},
+    -- Flutter
+    {"<leader>f", "<cmd>Telescope flutter commands<CR>", mode = "n", desc = "Flutter Commands"},
+    -- Http status code
+    {"<Bslash>h", "<cmd>Telescope http list<CR>", mode = "n", desc = "HTTP Codes"},
+  },
   config = function()
     local actions = require("telescope.actions")
 
@@ -15,7 +99,7 @@ return {
         end,
         prompt_prefix = "   ",
         selection_caret = "  ",
-        entry_prefix = "   ",
+        entry_prefix = " ",
         results_title = "",
         sorting_strategy = "ascending",
         layout_strategy = 'vertical',
@@ -129,54 +213,11 @@ return {
       }
     })
 
-
-    local function lsp_definitions()
-      require("telescope.builtin").lsp_definitions({
-        show_line = false,
-      })
-    end
-
-    local function lsp_references()
-      require("telescope.builtin").lsp_references({
-        show_line = false,
-      })
-    end
-
-    local function lsp_implementations()
-      require("telescope.builtin").lsp_implementations({
-        show_line = false,
-      })
-    end
-
-    local function lsp_incoming_calls()
-      require("telescope.builtin").lsp_incoming_calls({
-        show_line = false,
-      })
-    end
-
-
-    -- Key mappings
-    local keymap = vim.keymap.set
-    keymap("n", "<leader>i", "<cmd>Telescope find_files hidden=true<CR>", { silent = true })
-    keymap("n", "<leader>o", "<cmd>Telescope oldfiles<CR>", { silent = true })
-    keymap("n", "<leader>p", "<cmd>Telescope live_grep<CR>", { silent = true })
-    keymap("n", "<leader>l", ":Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>", { silent = true })
-    keymap("n", "<Bslash>g", "<cmd>Telescope git_commits<CR>", { silent = true })
-    keymap("n", "<Bslash>b", "<cmd>Telescope git_bcommits<CR>", { silent = true })
-    keymap("n", "gd", lsp_definitions, { silent = true })
-    keymap("n", "gr", lsp_references, { silent = true })
-    keymap("n", "gu", lsp_implementations, { silent = true })
-    keymap("n", "ga", lsp_incoming_calls, { silent = true })
-
-    -- Flutter
-    keymap("n", "<leader>f", "<cmd>Telescope flutter commands<CR>", { silent = true })
-    -- Http status code
-    keymap("n", "<Bslash>h", "<cmd>Telescope http list<CR>")
-
     -- Load extension
-    require("telescope").load_extension("harpoon")
+    -- TODO: install dependencies
+    -- require("telescope").load_extension("harpoon")
     require("telescope").load_extension("file_browser")
-    require("telescope").load_extension("flutter")
+    -- require("telescope").load_extension("flutter")
     require("telescope").load_extension("http")
   end
 }
