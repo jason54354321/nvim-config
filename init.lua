@@ -119,4 +119,11 @@ require("lazy").setup("plugins", {
   change_detection = {
     notify = false,
   },
+  performance = {
+    reset_packpath = true, -- reset the package path to improve startup time
+    rtp = {
+      reset = false, -- reset the runtime path to $VIMRUNTIME and your config directory(why the f you doing that)
+    },
+  },
 })
+
