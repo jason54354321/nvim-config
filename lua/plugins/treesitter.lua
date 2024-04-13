@@ -2,6 +2,9 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   event = "BufEnter",
+  dependencies = {
+    "windwp/nvim-ts-autotag",
+  },
   config = function()
     if vim.fn.has('win32') == 1 then
       require 'nvim-treesitter.install'.compilers = { "clang" }
