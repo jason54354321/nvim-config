@@ -1,4 +1,3 @@
-vim.o.guicursor = ""
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.errorbells = false
