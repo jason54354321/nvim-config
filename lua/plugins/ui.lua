@@ -46,6 +46,7 @@ return {
       ]])
     end
   },
+
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
@@ -144,4 +145,8 @@ return {
     end
   },
 
+  {
+    "nvim-tree/nvim-web-devicons",
+    lazy = true,
+  },
 }

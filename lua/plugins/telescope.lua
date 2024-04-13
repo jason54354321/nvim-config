@@ -99,7 +99,7 @@ return {
         end,
         prompt_prefix = "   ",
         selection_caret = "  ",
-        entry_prefix = "     ",
+        entry_prefix = "   ",
         results_title = "",
         sorting_strategy = "ascending",
         layout_strategy = 'vertical',
