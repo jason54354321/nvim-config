@@ -21,7 +21,9 @@ vim.o.updatetime = 50
 vim.o.termguicolors = true
 vim.o.splitright = true
 vim.o.fileformats = "unix"
+
 vim.g.mapleader = " "
+vim.g.airline_powerline_fonts = 1
 
 require('jason')
 require('colors.cmp_hi')
@@ -29,15 +31,6 @@ require('colors.cmp_hi')
 vim.g.camelcasemotion_key = ','
 
 -- --------- Colors & Appearance -----------
-vim.cmd("hi clear SignColumn")
-vim.g.airline_powerline_fonts = 1
-
-vim.cmd([[
-  set cursorline
-  hi LineNr guibg=none guifg=#959895
-  hi CursorLineNr guibg=none guifg=#959895
-  hi link Comment NormalComment
-]])
 -- -----------------------------------------
   
   
