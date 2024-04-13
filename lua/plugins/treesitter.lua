@@ -24,9 +24,11 @@ return {
         disable = {},
       },
       ensure_installed = {
-        "vim",
-        "lua",
         "c",
+        "lua",
+        "vim",
+        "vimdoc",
+        "query",
         "cpp",
         "tsx",
         "java",

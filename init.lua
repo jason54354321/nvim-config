@@ -20,7 +20,7 @@ vim.o.numberwidth = 5
 vim.o.updatetime = 50
 vim.o.termguicolors = true
 vim.o.splitright = true
-vim.o.fileformats = "unix"
+vim.o.fileformats = "unix,dos,mac"
 
 vim.g.mapleader = " "
 vim.g.airline_powerline_fonts = 1
