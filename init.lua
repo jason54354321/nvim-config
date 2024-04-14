@@ -60,15 +60,6 @@ vim.api.nvim_set_keymap("n", "<leader>md", ":MarkdownPreview<CR>", {noremap = tr
 vim.api.nvim_set_keymap("x", "J", ":m '>+1<CR>gv=gv", {})
 vim.api.nvim_set_keymap("x", "K", ":m '<-2<CR>gv=gv", {})
 
--- UltiSnips
-vim.cmd("autocmd FileType dart UltiSnipsAddFiletypes dart-flutter")
-vim.g.UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
-vim.g.UltiSnipsJumpForwardTrigger = "<Plug>(ultisnips_jump_forward)"
-vim.g.UltiSnipsJumpBackwardTrigger = "<Plug>(ultisnips_jump_backward)"
-vim.g.UltiSnipsListSnippets = "<c-x><c-s>"
-vim.g.UltiSnipsRemoveSelectModeMappings = 0
-vim.g.UltiSnipsEditSplit = "vertical"
-
 vim.cmd([[
   augroup auto_scrolloff
     autocmd!
