@@ -29,7 +29,7 @@ return {
       "onsails/lspkind-nvim",
       config = function()
         require("lspkind").init({
-          preset = "codicons",
+          preset = "default",
         })
       end,
     },
@@ -38,6 +38,7 @@ return {
     -- Setup nvim-cmp.
     local cmp = require('cmp')
     local cmp_theme = cmp.config.window and 'dark' or 'light'
+    require('colors.cmp_hi').cmp_color_setup()
 
     local t = function(str)
       return vim.api.nvim_replace_termcodes(str, true, true, true)
