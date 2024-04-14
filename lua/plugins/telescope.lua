@@ -34,30 +34,6 @@ local function file_browser()
   require("telescope").extensions.file_browser.file_browser(opts)
 end
 
-local function lsp_definitions()
-  require("telescope.builtin").lsp_definitions({
-    show_line = false,
-  })
-end
-
-local function lsp_references()
-  require("telescope.builtin").lsp_references({
-    show_line = false,
-  })
-end
-
-local function lsp_implementations()
-  require("telescope.builtin").lsp_implementations({
-    show_line = false,
-  })
-end
-
-local function lsp_incoming_calls()
-  require("telescope.builtin").lsp_incoming_calls({
-    show_line = false,
-  })
-end
-
 return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
@@ -76,11 +52,6 @@ return {
     {"<Bslash>g", "<cmd>Telescope git_commits<CR>", mode = "n", desc = "Commits"},
     {"<Bslash>b", "<cmd>Telescope git_bcommits<CR>", mode = "n", desc = "Buffer's Commits"},
 
-    -- Lsp
-    {"gd", lsp_definitions, mode = "n", desc = "Buffer's Commits"},
-    {"gr", lsp_references, mode = "n", desc = "Buffer's Commits"},
-    {"gu", lsp_implementations, mode = "n", desc = "Buffer's Commits"},
-    {"ga", lsp_incoming_calls, mode = "n", desc = "Buffer's Commits"},
     -- Flutter
     {"<leader>f", "<cmd>Telescope flutter commands<CR>", mode = "n", desc = "Flutter Commands"},
     -- Http status code

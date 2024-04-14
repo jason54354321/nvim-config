@@ -24,7 +24,6 @@ vim.o.fileformats = "unix,dos,mac"
 vim.g.mapleader = " "
 vim.g.airline_powerline_fonts = 1
 
-require('jason')
 require('colors.cmp_hi')
 
 vim.g.camelcasemotion_key = ','

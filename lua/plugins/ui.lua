@@ -96,6 +96,7 @@ return {
 
   {
     "lewis6991/gitsigns.nvim",
+    event = "BufEnter",
     config = function()
       local on_attach = function(bufnr)
         local gs = package.loaded.gitsigns

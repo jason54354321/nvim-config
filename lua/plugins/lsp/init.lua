@@ -1,3 +1,27 @@
+local function lsp_definitions()
+  require("telescope.builtin").lsp_definitions({
+    show_line = false,
+  })
+end
+
+local function lsp_references()
+  require("telescope.builtin").lsp_references({
+    show_line = false,
+  })
+end
+
+local function lsp_implementations()
+  require("telescope.builtin").lsp_implementations({
+    show_line = false,
+  })
+end
+
+local function lsp_incoming_calls()
+  require("telescope.builtin").lsp_incoming_calls({
+    show_line = false,
+  })
+end
+
 local function lsp_related_ui_adjust()
   vim.diagnostic.config({
     virtual_text = {
@@ -24,6 +48,11 @@ local function on_attach_default(client, bufnr)
   vim.keymap.set('n', '<Bslash>f', vim.lsp.buf.format, bufopts)
   vim.keymap.set('n', 'm', [[<cmd>lua require('lsp-selection-range').trigger()<CR>]], bufopts)
   vim.keymap.set('x', 'm', [[<cmd>lua require('lsp-selection-range').expand()<CR>]], bufopts)
+    -- Lsp
+  vim.keymap.set('n', 'gd', lsp_definitions, bufopts)
+  vim.keymap.set('n', 'gr', lsp_references, bufopts)
+  vim.keymap.set('n', 'gu', lsp_implementations, bufopts)
+  vim.keymap.set('n', 'ga', lsp_incoming_calls, bufopts)
 
   -- disable shit-like lsp highlight
   for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
@@ -67,9 +96,6 @@ return {
         on_attach_default(client, bufnr)
       end
 
-
-      -- TODO: fix this
-      --[[
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       capabilities = require('lsp-selection-range').update_capabilities(capabilities)
       for _, lsp in ipairs(servers) do
@@ -78,7 +104,6 @@ return {
           capabilities = capabilities,
         }
       end
-      ]]--
 
     end,
   },

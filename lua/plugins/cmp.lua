@@ -7,14 +7,15 @@ return {
     "hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for neovim's built-in LSP
     "saadparwaiz1/cmp_luasnip", -- nvim-cmp source for luasnip
     "hrsh7th/cmp-cmdline", -- nvim-cmp source for vim's cmdline
-  },
-  {
-    "onsails/lspkind-nvim",
-    config = function()
-      require("lspkind").init({
-        preset = "codicons",
-      })
-    end,
+    "SirVer/ultisnips",
+    {
+      "onsails/lspkind-nvim",
+      config = function()
+        require("lspkind").init({
+          preset = "codicons",
+        })
+      end,
+    },
   },
   config = function()
     -- Setup nvim-cmp.
