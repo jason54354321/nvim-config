@@ -67,6 +67,9 @@ return {
         on_attach_default(client, bufnr)
       end
 
+
+      -- TODO: fix this
+      --[[
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       capabilities = require('lsp-selection-range').update_capabilities(capabilities)
       for _, lsp in ipairs(servers) do
@@ -75,6 +78,7 @@ return {
           capabilities = capabilities,
         }
       end
+      ]]--
 
     end,
   },
