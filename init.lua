@@ -25,6 +25,33 @@ vim.g.mapleader = " "
 vim.g.airline_powerline_fonts = 1
 
 vim.g.camelcasemotion_key = ','
+  
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+
+
+require("lazy").setup("plugins", {
+  change_detection = {
+    notify = false,
+  },
+  performance = {
+    reset_packpath = true, -- reset the package path to improve startup time
+    rtp = {
+      reset = false, -- reset the runtime path to $VIMRUNTIME and your config directory(why the f you doing that)
+    },
+  },
+})
+
 
 -- --------- Colors & Appearance -----------
 -- -----------------------------------------
@@ -86,31 +113,3 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- ------------------------------------------ 
-  
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
-end
-vim.opt.rtp:prepend(lazypath)
-
-
-require("lazy").setup("plugins", {
-  change_detection = {
-    notify = false,
-  },
-  performance = {
-    reset_packpath = true, -- reset the package path to improve startup time
-    rtp = {
-      reset = false, -- reset the runtime path to $VIMRUNTIME and your config directory(why the f you doing that)
-    },
-  },
-})
-
