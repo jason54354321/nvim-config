@@ -202,7 +202,18 @@ return {
         { name = 'path' }
       }, {
         { name = 'cmdline' }
-      })
+      }),
+      formatting = {
+        -- fields = { "kind", "abbr" },
+        fields = { "abbr" },
+        format = function(entry, vim_item)
+          local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 25 })(entry, vim_item)
+          local strings = vim.split(kind.kind, "%s", { trimempty = false })
+          kind.kind = " " .. (strings[1] or "") .. " "
+
+          return kind
+        end,
+      },
     })
   end
 }
