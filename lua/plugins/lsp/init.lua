@@ -69,6 +69,7 @@ local servers = { 'tsserver',
 	'vuels',
 	'bashls',
 	'kotlin_language_server',
+  'robotframework_ls',
 }
 
 return {
@@ -102,6 +103,11 @@ return {
         nvim_lsp[lsp].setup {
           on_attach = on_attach,
           capabilities = capabilities,
+          settings = {
+            robot = {
+              pythonpath = "patthere"
+            }
+          },
         }
       end
 
