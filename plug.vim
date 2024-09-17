@@ -48,6 +48,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" Debugger
 	Plug 'mfussenegger/nvim-dap'
+	Plug 'nvim-neotest/nvim-nio'
 	Plug 'rcarriga/nvim-dap-ui'
 
 	" Theme & Apearance
