@@ -31,9 +31,8 @@ if vim.fn.has('win32') == 1 then
 else
 	adapter_path = mason_bin_path .. 'codelldb'
 end
-print("Printing adapter_path:" .. adapter_path)
+-- print("Printing adapter_path:" .. adapter_path)
 
--- TODO: needs to adapt to unix os(Unix dosen't have .cmd extension)
 -- adapters
 dap.adapters.codelldb = {
 	type = 'server',
