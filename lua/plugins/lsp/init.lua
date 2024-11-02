@@ -103,11 +103,6 @@ return {
         nvim_lsp[lsp].setup {
           on_attach = on_attach,
           capabilities = capabilities,
-          settings = {
-            robot = {
-              pythonpath = "patthere"
-            }
-          },
         }
       end
 
