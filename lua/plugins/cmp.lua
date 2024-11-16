@@ -7,6 +7,7 @@ return {
     "hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for neovim's built-in LSP
     "saadparwaiz1/cmp_luasnip", -- nvim-cmp source for luasnip
     "hrsh7th/cmp-cmdline", -- nvim-cmp source for vim's cmdline
+    'L3MON4D3/LuaSnip',
 
     {
       "onsails/lspkind-nvim",
@@ -20,6 +21,7 @@ return {
   config = function()
     -- Setup nvim-cmp.
     local cmp = require('cmp')
+    local luasnip = require('luasnip')
     local cmp_theme = cmp.config.window and 'dark' or 'light'
     require('colors.cmp_hi').cmp_color_setup()
 
@@ -28,6 +30,11 @@ return {
     end
 
     cmp.setup({
+      snippet = {
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
+      },
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
