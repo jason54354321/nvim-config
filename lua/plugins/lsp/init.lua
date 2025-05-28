@@ -60,7 +60,7 @@ local function on_attach_default(client, bufnr)
   end
 end
 
-local servers = { 'tsserver',
+local servers = { 'ts_ls',
 	'vimls',
 	'clangd',
 	'pyright',
