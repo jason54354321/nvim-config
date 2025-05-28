@@ -48,11 +48,15 @@ local function on_attach_default(client, bufnr)
   vim.keymap.set('n', '<Bslash>f', vim.lsp.buf.format, bufopts)
   vim.keymap.set('n', 'm', [[<cmd>lua require('lsp-selection-range').trigger()<CR>]], bufopts)
   vim.keymap.set('x', 'm', [[<cmd>lua require('lsp-selection-range').expand()<CR>]], bufopts)
-    -- Lsp
+  -- Lsp
   vim.keymap.set('n', 'gd', lsp_definitions, bufopts)
   vim.keymap.set('n', 'gr', lsp_references, bufopts)
   vim.keymap.set('n', 'gu', lsp_implementations, bufopts)
   vim.keymap.set('n', 'ga', lsp_incoming_calls, bufopts)
+
+  -- jump
+  vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 
   -- disable shit-like lsp highlight
   for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
