@@ -162,6 +162,14 @@ return {
         disable_file_types = { 'groovy', 'xml' },
         hlgroup = 'LocalHighLight',
         cw_hlgroup = 'LocalHighLight',
+        animate = {
+          enabled = false,
+          easing = "linear",
+          duration = {
+            step = 10, -- ms per step
+            total = 100, -- maximum duration
+          },
+        },
       })
 
       -- vim.api.nvim_set_hl(0, 'LocalHighLight', { fg = "#282b30", bg = "#acadb1" })
