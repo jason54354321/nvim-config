@@ -9,6 +9,7 @@ local servers = { 'ts_ls',
 	'kotlin_language_server',
   'robotframework_ls',
   'lua_ls',
+  'gopls',
 }
 
 local function lsp_definitions()
