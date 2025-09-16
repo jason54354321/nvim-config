@@ -83,6 +83,19 @@ vim.api.nvim_set_keymap("x", "<", "<gv", {})
 vim.api.nvim_set_keymap("n", "<leader>md", ":MarkdownPreview<CR>", {noremap = true})
 vim.api.nvim_set_keymap("x", "J", ":m '>+1<CR>gv=gv", {})
 vim.api.nvim_set_keymap("x", "K", ":m '<-2<CR>gv=gv", {})
+-- Alternatively, enable it for a specific jump:
+vim.keymap.set('n', ']d',
+  function()
+    vim.diagnostic.jump({ count = 1, float = true })
+  end,
+{ desc = "Jump to next diagnostic with float" }
+)
+vim.keymap.set('n', '[d',
+  function()
+    vim.diagnostic.jump({ count = 1, float = true })
+  end,
+{ desc = "Jump to prev diagnostic with float" }
+)
 
 vim.cmd([[
   augroup auto_scrolloff

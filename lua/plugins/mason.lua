@@ -7,19 +7,23 @@ return {
     {
       "WhoIsSethDaniel/mason-tool-installer",
       config = function()
-        ensure_installed = {
-          -- lsp
-          "clangd",
-          "jdtls",
-          "lua-language-server",
-          "pyright",
-          "typescript-language-server",
-          "vim-language-server",
-          "bash-language-server",
+        require("mason-tool-installer").setup({
+          ensure_installed = {
+            -- lsp
+            "clangd",
+            "jdtls",
+            "lua-language-server",
+            "pyright",
+            "typescript-language-server",
+            "vim-language-server",
+            "bash-language-server",
 
-          -- dap
-          "codelldb",
-        }
+            -- dap
+            "codelldb",
+          },
+          auto_update = true, -- 可選：每次啟動自動更新工具
+          run_on_start = true, -- 啟動 Neovim 時自動安裝缺少的工具
+        })
       end
     }
   },

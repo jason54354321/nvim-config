@@ -72,6 +72,38 @@ return {
       mapping = {
         ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { 'i' }),
         ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { 'i' }),
+        ['<Tab>'] = cmp.mapping({
+          c = function()
+            if cmp.visible() then
+              cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+            else
+              vim.api.nvim_feedkeys(t('<Down>'), 'n', true)
+            end
+          end,
+          i = function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+            else
+              fallback()
+            end
+          end
+        }),
+        ['<S-Tab>'] = cmp.mapping({
+          c = function()
+            if cmp.visible() then
+              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+            else
+              vim.api.nvim_feedkeys(t('<Up>'), 'n', true)
+            end
+          end,
+          i = function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+            else
+              fallback()
+            end
+          end
+        }),
         ['<C-j>'] = cmp.mapping({
           c = function()
             if cmp.visible() then

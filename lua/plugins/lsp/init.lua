@@ -1,3 +1,16 @@
+local servers = { 'ts_ls',
+	'vimls',
+	'clangd',
+	'pyright',
+	'dockerls',
+	'docker_compose_language_service',
+	'vuels',
+	'bashls',
+	'kotlin_language_server',
+  'robotframework_ls',
+  'lua_ls',
+}
+
 local function lsp_definitions()
   require("telescope.builtin").lsp_definitions({
     show_line = false,
@@ -23,18 +36,33 @@ local function lsp_incoming_calls()
 end
 
 local function lsp_related_ui_adjust()
+  -- vim.diagnostic.config({
+  --   virtual_text = {
+  --     prefix = '●', -- Could be '●', '▎', 'x'
+  --   }
+  -- })
+  
+  -- Disable virtual_text since it's redundant due to lsp_lines.
   vim.diagnostic.config({
-    virtual_text = {
-      prefix = '●', -- Could be '●', '▎', 'x'
-    }
+    virtual_text = false,
   })
 
-  local signs = { Error = "", Warn = "", Hint = "", Info = "" }
-  for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    -- vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-    vim.fn.sign_define(hl, { text = '', texthl = hl, numhl = '' })
-  end
+  vim.diagnostic.config({
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = "",
+        [vim.diagnostic.severity.WARN] = "",
+        [vim.diagnostic.severity.INFO] = "",
+        [vim.diagnostic.severity.HINT] = "󰠠",
+      },
+      linehl = {
+        [vim.diagnostic.severity.ERROR] = "Error",
+        [vim.diagnostic.severity.WARN] = "Warn",
+        [vim.diagnostic.severity.INFO] = "Info",
+        [vim.diagnostic.severity.HINT] = "Hint",
+      },
+    },
+  })
 end
 
 local function on_attach_default(client, bufnr)
@@ -54,27 +82,13 @@ local function on_attach_default(client, bufnr)
   vim.keymap.set('n', 'gu', lsp_implementations, bufopts)
   vim.keymap.set('n', 'ga', lsp_incoming_calls, bufopts)
 
-  -- jump
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+  lsp_related_ui_adjust()
 
   -- disable shit-like lsp highlight
   for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
     vim.api.nvim_set_hl(0, group, {})
   end
 end
-
-local servers = { 'ts_ls',
-	'vimls',
-	'clangd',
-	'pyright',
-	'dockerls',
-	'docker_compose_language_service',
-	'vuels',
-	'bashls',
-	'kotlin_language_server',
-  'robotframework_ls',
-}
 
 return {
   -- configuration for nvim lsp
