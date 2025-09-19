@@ -74,7 +74,10 @@ vim.api.nvim_set_keymap("n", "<C-Left>", "<C-w><", {noremap = true})
 vim.api.nvim_set_keymap("n", "<C-Right>", "<C-w>>", {noremap = true})
 vim.api.nvim_command("autocmd VimEnter * nnoremap <C-Down> <C-w>+")
 vim.api.nvim_command("autocmd VimEnter * nnoremap <C-Up> <C-w>-")
-vim.api.nvim_set_keymap("n", "<esc>", ":noh<CR>", {noremap = true})
+vim.keymap.set("n", "<Esc>", function()
+  vim.cmd.nohlsearch()  -- 呼叫內建函式，不會顯示 :noh
+end, { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap("x", "p", "P", {})
 vim.api.nvim_set_keymap("x", "<leader>d", '"_d', {})
 vim.api.nvim_set_keymap("x", "<C-c>", '"+y', {})

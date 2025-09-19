@@ -69,6 +69,7 @@ local function on_attach_default(client, bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
   vim.keymap.set('n', '<Bslash>f', vim.lsp.buf.format, bufopts)
+  vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, bufopts)
   vim.keymap.set('n', 'm', [[<cmd>lua require('lsp-selection-range').trigger()<CR>]], bufopts)
   vim.keymap.set('x', 'm', [[<cmd>lua require('lsp-selection-range').expand()<CR>]], bufopts)
   -- Lsp
