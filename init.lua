@@ -97,7 +97,7 @@ vim.keymap.set('n', ']d',
 )
 vim.keymap.set('n', '[d',
   function()
-    vim.diagnostic.jump({ count = 1, float = true })
+    vim.diagnostic.jump({ count = -1, float = true })
   end,
 { desc = "Jump to prev diagnostic with float" }
 )
