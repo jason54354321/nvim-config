@@ -1,12 +1,12 @@
 local servers = { 'ts_ls',
-	'vimls',
-	'clangd',
-	'pyright',
-	'dockerls',
-	'docker_compose_language_service',
-	'vuels',
-	'bashls',
-	'kotlin_language_server',
+  'vimls',
+  'clangd',
+  'pyright',
+  'dockerls',
+  'docker_compose_language_service',
+  'vuels',
+  'bashls',
+  'kotlin_language_server',
   'robotframework_ls',
   'lua_ls',
   'gopls',
@@ -42,7 +42,7 @@ local function lsp_related_ui_adjust()
   --     prefix = '●', -- Could be '●', '▎', 'x'
   --   }
   -- })
-  
+
   -- Disable virtual_text since it's redundant due to lsp_lines.
   vim.diagnostic.config({
     virtual_text = false,
@@ -81,8 +81,14 @@ local function on_attach_default(client, bufnr)
   lsp_related_ui_adjust()
 
   -- disable shit-like lsp highlight
-  for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-    vim.api.nvim_set_hl(0, group, {})
+  if client.name ~= "gopls" then
+    for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+      vim.api.nvim_set_hl(0, group, {})
+    end
+  end
+
+  if client.name == "gopls" then
+    vim.api.nvim_set_hl(0, '@lsp.type.namespace', { link = "Statement" })
   end
 end
 
@@ -120,6 +126,15 @@ return {
         }
       end
 
+      nvim_lsp.gopls.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+          gopls = {
+            semanticTokens = true,
+          },
+        },
+      })
     end,
   },
 }
