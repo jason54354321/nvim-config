@@ -74,8 +74,10 @@ local function on_attach_default(client, bufnr)
   vim.keymap.set('x', 'm', [[<cmd>lua require('lsp-selection-range').expand()<CR>]], bufopts)
   -- Lsp
   vim.keymap.set('n', 'gd', lsp_definitions, bufopts)
+  vim.keymap.set('n', 'gi', lsp_implementations, bufopts)
+
+  -- Note: I couldn't see any diffrence between the two below
   vim.keymap.set('n', 'gr', lsp_references, bufopts)
-  vim.keymap.set('n', 'gu', lsp_implementations, bufopts)
   vim.keymap.set('n', 'ga', lsp_incoming_calls, bufopts)
 
   lsp_related_ui_adjust()
