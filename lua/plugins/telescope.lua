@@ -52,8 +52,6 @@ return {
     {"<Bslash>g", "<cmd>Telescope git_commits<CR>", mode = "n", desc = "Commits"},
     {"<Bslash>b", "<cmd>Telescope git_bcommits<CR>", mode = "n", desc = "Buffer's Commits"},
 
-    -- Flutter
-    {"<leader>f", "<cmd>Telescope flutter commands<CR>", mode = "n", desc = "Flutter Commands"},
     -- Http status code
     {"<Bslash>h", "<cmd>Telescope http list<CR>", mode = "n", desc = "HTTP Codes"},
   },
@@ -152,6 +150,8 @@ return {
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-s>"] = actions.select_vertical,
+            ["<C-u>"] = actions.preview_scrolling_up,
+            ["<C-d>"] = actions.preview_scrolling_down,
           },
           n = {
             ["<C-s>"] = actions.select_vertical,
@@ -168,8 +168,10 @@ return {
             ["i"] = {
               ["<C-l>"] = fb_actions.create,
               ["<C-r>"] = fb_actions.rename,
-              ["<C-d>"] = fb_actions.remove,
+              ["<C-x>"] = fb_actions.remove,
               ["<C-h>"] = fb_actions.goto_parent_dir,
+              ["<C-u>"] = actions.preview_scrolling_up,
+              ["<C-d>"] = actions.preview_scrolling_down,
             },
             ["n"] = {
               -- your custom normal mode mappings
@@ -187,5 +189,7 @@ return {
     -- Load extension
     require("telescope").load_extension("harpoon")
     require("telescope").load_extension("file_browser")
+    -- require("telescope").load_extension("flutter")
+    require("telescope").load_extension("http")
   end
 }
