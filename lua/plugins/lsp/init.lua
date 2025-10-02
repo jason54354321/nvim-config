@@ -91,6 +91,7 @@ local function on_attach_default(client, bufnr)
 
   if client.name == "gopls" then
     vim.api.nvim_set_hl(0, '@lsp.type.namespace', { link = "Statement" })
+    vim.api.nvim_set_hl(0, '@lsp.type.method', { link = "@method" })
   end
 end
 
